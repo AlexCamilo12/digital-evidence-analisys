@@ -1,0 +1,446 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz - Análisis de Evidencia Digital{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section para Quiz -->
+<section class="quiz-hero py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge-container mb-4">
+                        <span class="hero-badge">🧠 Pon a Prueba tu Conocimiento</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Quiz</span>
+                        <br>
+                        <span class="hero-subtitle">Análisis de Evidencia Digital</span>
+                    </h1>
+                    <p class="hero-description">
+                        Acpta en dasfío y ponte a prueba con el quiz de analisis de evidencia digital. 
+                        Responde las siguientes preguntas y descubre tu nivel de conocimiento.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Preguntas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Opciones Cada Una</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000</div>
+                            <div class="stat-label">Puntos Máximos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-visual">
+                    <div class="quiz-preview">
+                        <div class="preview-card card-1">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Pregunta 1</span>
+                        </div>
+                        <div class="preview-card card-2">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Correcto</span>
+                        </div>
+                        <div class="preview-card card-3">
+                            <i class="fas fa-times-circle"></i>
+                            <span>Incorrecto</span>
+                        </div>
+                        <div class="preview-card card-4">
+                            <i class="fas fa-trophy"></i>
+                            <span>Puntuación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección del Quiz -->
+<section class="game-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="game-container">
+                    <!-- Header del Quiz -->
+                    <div class="game-header text-center mb-5">
+                        <h2 class="game-title">🎯 Quiz de Análisis Forense Digital</h2>
+                        <p class="game-subtitle">Responde correctamente las 15 preguntas para demostrar tu expertise</p>
+                    </div>
+
+                    <!-- Panel de Estadísticas -->
+                    <div class="stats-panel mb-4">
+                        <div class="row text-center">
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-list-ol"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="current-question">1</div>
+                                        <div class="stat-label">Pregunta</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="correct-answers">0</div>
+                                        <div class="stat-label">Correctas</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="quiz-timer">0</div>
+                                        <div class="stat-label">Segundos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="quiz-score">0</div>
+                                        <div class="stat-label">Puntuación</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Barra de Progreso -->
+                    <div class="progress-container mb-4">
+                        <div class="progress">
+                            <div id="quiz-progress" class="progress-bar" role="progressbar" style="width: 0%">
+                                <span class="progress-text">0% Completado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controles del Quiz -->
+                    <div class="game-controls text-center mb-4">
+                        <button id="start-quiz" class="btn btn-game-primary btn-lg me-3">
+                            <i class="fas fa-play me-2"></i>
+                            Iniciar Quiz
+                        </button>
+                        <button id="reset-quiz" class="btn btn-game-secondary btn-lg me-3">
+                            <i class="fas fa-redo me-2"></i>
+                            Reiniciar
+                        </button>
+                        <button id="submit-quiz" class="btn btn-game-accent btn-lg" disabled>
+                            <i class="fas fa-paper-plane me-2"></i>
+                            Finalizar
+                        </button>
+                    </div>
+
+                    <!-- Área del Quiz -->
+                    <div class="quiz-content">
+                        <!-- Pantalla de Inicio -->
+                        <div id="quiz-start" class="quiz-screen active">
+                            <div class="start-content text-center">
+                                <div class="start-icon mb-4">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3 class="mb-4">¿Estás listo para el desafío?</h3>
+                                <p class="mb-4">Este quiz contiene 15 preguntas sobre análisis de evidencia digital. Tienes tiempo ilimitado, pero tu puntuación se verá afectada por el tiempo que tardes.</p>
+                                
+                                <div class="quiz-info mb-4">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="info-card">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <h5>Nivel de Dificultad</h5>
+                                                <p>Intermedio - Avanzado</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="info-card">
+                                                <i class="fas fa-award"></i>
+                                                <h5>Puntuación Máxima</h5>
+                                                <p>1000 puntos</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button id="begin-quiz" class="btn btn-game-primary btn-lg">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    Comenzar Quiz
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Pantalla de Preguntas -->
+                        <div id="quiz-questions" class="quiz-screen">
+                            <div class="question-container">
+                                <div class="question-header mb-4">
+                                    <h4 id="question-text" class="question-title"></h4>
+                                    <div class="question-number">
+                                        <span id="question-counter">Pregunta 1 de 15</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="options-container" id="options-container">
+                                    <!-- Las opciones se generarán dinámicamente -->
+                                </div>
+                                
+                                <div class="question-feedback mt-4" id="question-feedback">
+                                    <!-- Feedback se mostrará aquí -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pantalla de Resultados -->
+                        <div id="quiz-results" class="quiz-screen">
+                            <div class="results-content text-center">
+                                <div class="results-icon mb-4">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                
+                                <div class="score-display mb-4">
+                                    <div class="score-circle">
+                                        <span id="final-score">0</span>
+                                        <small>/15</small>
+                                    </div>
+                                </div>
+                                
+                                <h3 id="results-title" class="mb-3"></h3>
+                                <p id="results-message" class="mb-4"></p>
+                                
+                                <div class="results-stats mb-4">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="result-stat">
+                                                <div class="stat-value" id="correct-count">0</div>
+                                                <div class="stat-label">Correctas</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="result-stat">
+                                                <div class="stat-value" id="time-taken">0s</div>
+                                                <div class="stat-label">Tiempo</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="result-stat">
+                                                <div class="stat-value" id="final-percentage">0%</div>
+                                                <div class="stat-label">Efectividad</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="results-actions">
+                                    <button id="review-answers" class="btn btn-game-secondary me-3">
+                                        <i class="fas fa-list me-2"></i>
+                                        Revisar Respuestas
+                                    </button>
+                                    <button id="restart-quiz" class="btn btn-game-primary">
+                                        <i class="fas fa-redo me-2"></i>
+                                        Intentar Nuevamente
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navegación entre Preguntas -->
+                    <div class="quiz-navigation text-center mt-4 d-none" id="quiz-navigation">
+                        <button id="prev-question" class="btn btn-game-secondary me-3" disabled>
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Anterior
+                        </button>
+                        <button id="next-question" class="btn btn-game-primary">
+                            Siguiente
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Temas Evaluados -->
+<section class="learned-terms py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Temas <span class="gradient-text">Evaluados</span></h2>
+            <p class="section-subtitle">Conoce las áreas de conocimiento que pondrás a prueba</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h5>Principios Forenses</h5>
+                    <p>Fundamentos éticos y metodológicos del análisis de evidencia digital</p>
+                    <ul class="term-list">
+                        <li>Cadena de custodia</li>
+                        <li>Integridad de evidencia</li>
+                        <li>Métodos de preservación</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h5>Herramientas y Técnicas</h5>
+                    <p>Software especializado y metodologías de análisis forense</p>
+                    <ul class="term-list">
+                        <li>Imágenes forenses</li>
+                        <li>Análisis de hashes</li>
+                        <li>Recuperación de datos</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h5>Evidencia Volátil</h5>
+                    <p>Análisis de memoria RAM y datos temporales del sistema</p>
+                    <ul class="term-list">
+                        <li>Captura de memoria</li>
+                        <li>Procesos en ejecución</li>
+                        <li>Conexiones de red</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h5>Metadata y Logs</h5>
+                    <p>Análisis de información contextual y registros del sistema</p>
+                    <ul class="term-list">
+                        <li>Metadatos de archivos</li>
+                        <li>Registros de eventos</li>
+                        <li>Línea de tiempo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h5>Sistemas Operativos</h5>
+                    <p>Análisis específico por plataforma y sistema de archivos</p>
+                    <ul class="term-list">
+                        <li>Artefactos de Windows</li>
+                        <li>Sistemas Linux/Unix</li>
+                        <li>Dispositivos móviles</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h5>Aspectos Legales</h5>
+                    <p>Consideraciones jurídicas y estándares internacionales</p>
+                    <ul class="term-list">
+                        <li>Estándares ISO</li>
+                        <li>Admisibilidad legal</li>
+                        <li>Reportes forenses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Niveles de Competencia -->
+<section class="achievements-section py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Niveles de <span class="gradient-text">Competencia</span></h2>
+            <p class="section-subtitle">Descubre tu nivel de expertise en análisis forense digital</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="achievement-card">
+                    <div class="achievement-icon bronze">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h5>Novato</h5>
+                    <p>0-5 respuestas correctas</p>
+                    <div class="achievement-description">
+                        <p>Conocimientos básicos. ¡Sigue estudiando!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="achievement-card">
+                    <div class="achievement-icon silver">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h5>Intermedio</h5>
+                    <p>6-10 respuestas correctas</p>
+                    <div class="achievement-description">
+                        <p>Buen conocimiento base. ¡Vas por buen camino!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="achievement-card">
+                    <div class="achievement-icon gold">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h5>Avanzado</h5>
+                    <p>11-13 respuestas correctas</p>
+                    <div class="achievement-description">
+                        <p>Excelente comprensión del tema. ¡Casi eres experto!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="achievement-card">
+                    <div class="achievement-icon expert">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h5>Experto</h5>
+                    <p>14-15 respuestas correctas</p>
+                    <div class="achievement-description">
+                        <p>Dominio completo del tema. ¡Eres un experto forense!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,1328 @@
+{% extends "base.html" %}
+
+{% block title %}Juego Interactivo - Forensic Digital{% endblock %}
+
+{% block content %}
+<!-- Hero Section para Actividades -->
+<section class="activities-hero py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge-container mb-4">
+                        <span class="hero-badge">🎮 Aprende Jugando</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Juego de Memoria</span>
+                        <br>
+                        <span class="hero-subtitle">Términos Forenses</span>
+                    </h1>
+                    <p class="hero-description">
+                        Pon a prueba tu memoria mientras aprendes los conceptos más importantes 
+                        del análisis de evidencia digital. Encuentra las parejas de términos 
+                        y sus definiciones para convertirte en un experto.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">16</div>
+                            <div class="stat-label">Cartas por Jugar</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Términos Clave</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Diversión</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-visual">
+                    <div class="game-preview">
+                        <div class="preview-card card-1">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Forensia</span>
+                        </div>
+                        <div class="preview-card card-2">
+                            <i class="fas fa-fingerprint"></i>
+                            <span>Integridad</span>
+                        </div>
+                        <div class="preview-card card-3">
+                            <i class="fas fa-link"></i>
+                            <span>Cadena</span>
+                        </div>
+                        <div class="preview-card card-4">
+                            <i class="fas fa-database"></i>
+                            <span>Metadata</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Juego de Memoria Mejorado -->
+<section class="game-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="game-container">
+                    <!-- Header del Juego -->
+                    <div class="game-header text-center mb-5">
+                        <h2 class="game-title">🎯 Juego de Memoria Forense</h2>
+                        <p class="game-subtitle">Encuentra las parejas de términos y sus definiciones</p>
+                    </div>
+
+                    <!-- Panel de Estadísticas -->
+                    <div class="stats-panel mb-4">
+                        <div class="row text-center">
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="attempts">0</div>
+                                        <div class="stat-label">Intentos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="matches">0</div>
+                                        <div class="stat-label">Aciertos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="timer">0</div>
+                                        <div class="stat-label">Segundos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-number" id="score">0</div>
+                                        <div class="stat-label">Puntuación</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controles del Juego -->
+                    <div class="game-controls text-center mb-4">
+                        <button id="start-game" class="btn btn-game-primary btn-lg me-3">
+                            <i class="fas fa-play me-2"></i>
+                            Iniciar Juego
+                        </button>
+                        <button id="reset-game" class="btn btn-game-secondary btn-lg me-3">
+                            <i class="fas fa-redo me-2"></i>
+                            Reiniciar
+                        </button>
+                        <button id="hint-button" class="btn btn-game-accent btn-lg">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            Pista
+                        </button>
+                    </div>
+
+                    <!-- Barra de Progreso -->
+                    <div class="progress-container mb-4">
+                        <div class="progress">
+                            <div id="game-progress" class="progress-bar" role="progressbar" style="width: 0%">
+                                <span class="progress-text">0% Completado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Área del Juego -->
+                    <div class="game-board-container">
+                        <div id="memory-game" class="memory-game">
+                            <!-- Las cartas se generarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Mensajes del Juego -->
+                    <div id="game-messages" class="game-messages mt-4">
+                        <div id="welcome-message" class="alert alert-game-info text-center">
+                            <h5>🎮 ¡Bienvenido al Juego de Memoria Forense!</h5>
+                            <p class="mb-0">Haz clic en "Iniciar Juego" para comenzar. Encuentra todas las parejas de términos forenses.</p>
+                        </div>
+                        <div id="success-message" class="alert alert-game-success text-center d-none">
+                            <!-- Mensaje de éxito -->
+                        </div>
+                    </div>
+
+                    <!-- Instrucciones -->
+                    <div class="instructions-card mt-5">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-game-primary text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-graduation-cap me-2"></i>
+                                    ¿Cómo Jugar?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="instruction-step">
+                                            <div class="step-number">1</div>
+                                            <div class="step-content">
+                                                <h6>Haz clic en "Iniciar Juego"</h6>
+                                                <p>El temporizador comenzará a contar</p>
+                                            </div>
+                                        </div>
+                                        <div class="instruction-step">
+                                            <div class="step-number">2</div>
+                                            <div class="step-content">
+                                                <h6>Encuentra las parejas</h6>
+                                                <p>Haz clic en las cartas para voltearlas</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="instruction-step">
+                                            <div class="step-number">3</div>
+                                            <div class="step-content">
+                                                <h6>Empareja términos</h6>
+                                                <p>Encuentra el término con su definición correcta</p>
+                                            </div>
+                                        </div>
+                                        <div class="instruction-step">
+                                            <div class="step-number">4</div>
+                                            <div class="step-content">
+                                                <h6>¡Completa el juego!</h6>
+                                                <p>Encuentra todas las parejas para ganar</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Términos Aprendidos -->
+<section class="learned-terms py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Términos que <span class="gradient-text">Aprenderás</span></h2>
+            <p class="section-subtitle">Conoce los conceptos clave del análisis forense digital</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h5>Forensia Digital</h5>
+                    <p>Ciencia que aplica técnicas para investigar delitos digitales mediante el análisis de evidencia electrónica.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h5>Integridad</h5>
+                    <p>Principio que asegura que la evidencia digital no ha sido alterada desde su recolección.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h5>Cadena de Custodia</h5>
+                    <p>Registro documentado del manejo de evidencia desde su recolección hasta su presentación.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="term-card">
+                    <div class="term-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h5>Metadata</h5>
+                    <p>Información sobre los datos, como fecha de creación, modificación y propiedades del archivo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Logros -->
+<section class="achievements-section py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Logros por <span class="gradient-text">Alcanzar</span></h2>
+            <p class="section-subtitle">Completa desafíos y mejora tus habilidades forenses</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="achievement-card">
+                    <div class="achievement-icon bronze">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h5>Novato Forense</h5>
+                    <p>Completa el juego en menos de 2 minutos</p>
+                    <div class="achievement-progress">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 30%"></div>
+                        </div>
+                        <span>30% completado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="achievement-card">
+                    <div class="achievement-icon silver">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h5>Experto en Evidencia</h5>
+                    <p>Encuentra todas las parejas con menos de 15 intentos</p>
+                    <div class="achievement-progress">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 15%"></div>
+                        </div>
+                        <span>15% completado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="achievement-card">
+                    <div class="achievement-icon gold">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h5>Maestro Forense</h5>
+                    <p>Completa el juego sin usar pistas</p>
+                    <div class="achievement-progress">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 5%"></div>
+                        </div>
+                        <span>5% completado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Datos mejorados para el juego de memoria
+const memoryCards = [
+    { 
+        term: "Forensia Digital", 
+        definition: "Ciencia que aplica técnicas para investigar delitos digitales mediante análisis de evidencia electrónica",
+        icon: "fas fa-shield-alt"
+    },
+    { 
+        term: "Integridad", 
+        definition: "Principio que asegura que la evidencia digital no ha sido alterada desde su recolección",
+        icon: "fas fa-fingerprint"
+    },
+    { 
+        term: "Cadena de Custodia", 
+        definition: "Registro documentado del manejo de evidencia desde su recolección hasta su presentación",
+        icon: "fas fa-link"
+    },
+    { 
+        term: "Metadata", 
+        definition: "Información sobre los datos, como fecha de creación, modificación y propiedades del archivo",
+        icon: "fas fa-database"
+    },
+    { 
+        term: "Imagen Forense", 
+        definition: "Copia bit a bit exacta de un dispositivo de almacenamiento para análisis sin alterar original",
+        icon: "fas fa-copy"
+    },
+    { 
+        term: "Hash", 
+        definition: "Valor único algorítmico que identifica la integridad de un archivo o conjunto de datos",
+        icon: "fas fa-hashtag"
+    },
+    { 
+        term: "RAM", 
+        definition: "Memoria volátil de acceso aleatorio que contiene datos temporales de ejecución",
+        icon: "fas fa-memory"
+    },
+    { 
+        term: "Logs", 
+        definition: "Registros cronológicos de actividades en sistemas, aplicaciones y dispositivos",
+        icon: "fas fa-clipboard-list"
+    }
+];
+
+// Variables del juego mejoradas
+let flippedCards = [];
+let matchedPairs = 0;
+let attempts = 0;
+let gameStarted = false;
+let startTime;
+let timerInterval;
+let totalTime = 0;
+let score = 0;
+let hintsUsed = 0;
+
+// Inicializar el juego cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    initializeMemoryGame();
+    setupGameEvents();
+});
+
+function initializeMemoryGame() {
+    const gameContainer = document.getElementById('memory-game');
+    gameContainer.innerHTML = '';
+    
+    // Duplicar y mezclar las cartas
+    const gameCards = [...memoryCards, ...memoryCards];
+    shuffleArray(gameCards);
+    
+    // Crear las cartas en el DOM
+    gameCards.forEach((card, index) => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'memory-card';
+        cardElement.dataset.index = index;
+        cardElement.dataset.term = card.term;
+        cardElement.dataset.definition = card.definition;
+        
+        cardElement.innerHTML = `
+            <div class="card-front">
+                <div class="card-content">
+                    <i class="fas fa-question"></i>
+                    <span>?</span>
+                </div>
+            </div>
+            <div class="card-back">
+                <div class="card-content">
+                    <i class="${card.icon}"></i>
+                    <h6>${card.term}</h6>
+                    <small>${card.definition}</small>
+                </div>
+            </div>
+        `;
+        
+        cardElement.addEventListener('click', flipCard);
+        gameContainer.appendChild(cardElement);
+    });
+    
+    resetGameStats();
+    showWelcomeMessage();
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function flipCard() {
+    if (!gameStarted) {
+        showMessage('¡Haz clic en "Iniciar Juego" para comenzar!', 'warning');
+        return;
+    }
+    
+    const card = this;
+    
+    // No permitir voltear si ya está volteada o emparejada
+    if (card.classList.contains('flipped') || card.classList.contains('matched')) {
+        return;
+    }
+    
+    // No permitir voltear más de 2 cartas a la vez
+    if (flippedCards.length >= 2) {
+        return;
+    }
+    
+    // Efecto de voltear
+    card.classList.add('flipped');
+    flippedCards.push(card);
+    
+    // Efecto de sonido (simulado)
+    playFlipSound();
+    
+    // Verificar si hay dos cartas volteadas
+    if (flippedCards.length === 2) {
+        attempts++;
+        updateStats();
+        checkForMatch();
+    }
+}
+
+function checkForMatch() {
+    const [card1, card2] = flippedCards;
+    const isMatch = card1.dataset.term === card2.dataset.term;
+    
+    if (isMatch) {
+        // Cartas coinciden
+        setTimeout(() => {
+            card1.classList.add('matched');
+            card2.classList.add('matched');
+            card1.classList.add('success');
+            card2.classList.add('success');
+            flippedCards = [];
+            matchedPairs++;
+            
+            // Actualizar progreso
+            updateProgress();
+            updateStats();
+            
+            // Efecto de éxito
+            playSuccessSound();
+            
+            // Verificar si el juego ha terminado
+            if (matchedPairs === memoryCards.length) {
+                endGame();
+            }
+        }, 500);
+    } else {
+        // Cartas no coinciden - voltear de nuevo después de un delay
+        setTimeout(() => {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+            card1.classList.add('error');
+            card2.classList.add('error');
+            
+            setTimeout(() => {
+                card1.classList.remove('error');
+                card2.classList.remove('error');
+                flippedCards = [];
+            }, 300);
+        }, 1000);
+    }
+}
+
+function startGame() {
+    gameStarted = true;
+    startTime = new Date();
+    timerInterval = setInterval(updateTimer, 1000);
+    document.getElementById('start-game').disabled = true;
+    document.getElementById('start-game').innerHTML = '<i class="fas fa-play me-2"></i>Juego en Curso';
+    hideWelcomeMessage();
+    showMessage('¡Juego iniciado! Encuentra todas las parejas.', 'success');
+}
+
+function updateTimer() {
+    const currentTime = new Date();
+    totalTime = Math.floor((currentTime - startTime) / 1000);
+    document.getElementById('timer').textContent = totalTime;
+    
+    // Actualizar puntuación en tiempo real
+    updateScore();
+}
+
+function updateScore() {
+    // La puntuación se basa en tiempo e intentos
+    const timeBonus = Math.max(0, 300 - totalTime); // Bonus por rapidez
+    const attemptsPenalty = attempts * 5; // Penalización por intentos
+    const hintsPenalty = hintsUsed * 20; // Penalización por pistas
+    
+    score = Math.max(0, 1000 + timeBonus - attemptsPenalty - hintsPenalty);
+    document.getElementById('score').textContent = score;
+}
+
+function updateStats() {
+    document.getElementById('attempts').textContent = attempts;
+    document.getElementById('matches').textContent = matchedPairs;
+    updateScore();
+}
+
+function updateProgress() {
+    const progress = (matchedPairs / memoryCards.length) * 100;
+    const progressBar = document.getElementById('game-progress');
+    progressBar.style.width = progress + '%';
+    progressBar.querySelector('.progress-text').textContent = Math.round(progress) + '% Completado';
+    
+    // Cambiar color según progreso
+    if (progress < 25) {
+        progressBar.className = 'progress-bar progress-danger';
+    } else if (progress < 50) {
+        progressBar.className = 'progress-bar progress-warning';
+    } else if (progress < 75) {
+        progressBar.className = 'progress-bar progress-info';
+    } else {
+        progressBar.className = 'progress-bar progress-success';
+    }
+}
+
+function endGame() {
+    clearInterval(timerInterval);
+    gameStarted = false;
+    
+    // Calcular puntuación final
+    updateScore();
+    
+    const message = document.getElementById('success-message');
+    message.className = 'alert alert-game-success text-center';
+    message.innerHTML = `
+        <h4>🎉 ¡Felicidades! 🎉</h4>
+        <p>Completaste el juego en <strong>${totalTime} segundos</strong> con <strong>${attempts} intentos</strong>.</p>
+        <p><strong>Puntuación Final: ${score}</strong></p>
+        <p>¡Excelente memoria forense!</p>
+        <button class="btn btn-game-primary mt-2" onclick="initializeMemoryGame()">
+            <i class="fas fa-redo me-2"></i>Jugar Otra Vez
+        </button>
+    `;
+    message.classList.remove('d-none');
+    
+    // Efectos de confeti (simulado)
+    celebrate();
+}
+
+function celebrate() {
+    // Simular efectos de celebración
+    const gameContainer = document.querySelector('.game-board-container');
+    gameContainer.classList.add('celebrating');
+    
+    setTimeout(() => {
+        gameContainer.classList.remove('celebrating');
+    }, 3000);
+}
+
+function resetGameStats() {
+    flippedCards = [];
+    matchedPairs = 0;
+    attempts = 0;
+    gameStarted = false;
+    totalTime = 0;
+    score = 0;
+    hintsUsed = 0;
+    
+    document.getElementById('attempts').textContent = '0';
+    document.getElementById('matches').textContent = '0';
+    document.getElementById('timer').textContent = '0';
+    document.getElementById('score').textContent = '0';
+    document.getElementById('game-progress').style.width = '0%';
+    document.getElementById('game-progress').querySelector('.progress-text').textContent = '0% Completado';
+    document.getElementById('game-progress').className = 'progress-bar progress-danger';
+    
+    document.getElementById('start-game').disabled = false;
+    document.getElementById('start-game').innerHTML = '<i class="fas fa-play me-2"></i>Iniciar Juego';
+    
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
+    
+    hideSuccessMessage();
+    showWelcomeMessage();
+}
+
+function setupGameEvents() {
+    // Iniciar juego
+    document.getElementById('start-game').addEventListener('click', function() {
+        if (!gameStarted) {
+            startGame();
+        }
+    });
+    
+    // Reiniciar juego
+    document.getElementById('reset-game').addEventListener('click', function() {
+        initializeMemoryGame();
+        showMessage('Juego reiniciado. ¡Buena suerte!', 'info');
+    });
+    
+    // Botón de pista
+    document.getElementById('hint-button').addEventListener('click', function() {
+        if (!gameStarted) {
+            showMessage('Inicia el juego primero para usar pistas.', 'warning');
+            return;
+        }
+        
+        if (flippedCards.length === 1) {
+            hintsUsed++;
+            const firstCard = flippedCards[0];
+            const matchingTerm = firstCard.dataset.term;
+            
+            // Encontrar todas las cartas con el mismo término
+            const allCards = document.querySelectorAll('.memory-card');
+            allCards.forEach(card => {
+                if (card.dataset.term === matchingTerm && !card.classList.contains('flipped')) {
+                    card.style.boxShadow = '0 0 20px #FFD166, 0 0 30px #FFD166';
+                    card.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        card.style.boxShadow = '';
+                        card.style.transform = '';
+                    }, 2000);
+                }
+            });
+            
+            showMessage('¡Pista activada! La carta coincidente está resaltada.', 'info');
+        } else {
+            showMessage('Voltea una carta primero para obtener una pista.', 'warning');
+        }
+    });
+}
+
+// Funciones de utilidad
+function showWelcomeMessage() {
+    document.getElementById('welcome-message').classList.remove('d-none');
+}
+
+function hideWelcomeMessage() {
+    document.getElementById('welcome-message').classList.add('d-none');
+}
+
+function hideSuccessMessage() {
+    document.getElementById('success-message').classList.add('d-none');
+}
+
+function showMessage(text, type) {
+    // Podrías implementar un sistema de notificaciones toast aquí
+    console.log(`[${type.toUpperCase()}] ${text}`);
+}
+
+function playFlipSound() {
+    // Simular sonido de voltear carta
+    // En una implementación real, podrías usar Audio API
+}
+
+function playSuccessSound() {
+    // Simular sonido de éxito
+    // En una implementación real, podrías usar Audio API
+}
+
+// Efectos visuales
+function addParticles() {
+    // Podrías agregar partículas.js para efectos visuales
+}
+</script>
+
+<style>
+/* ===== NUEVA PALETA DE COLORES ===== */
+:root {
+    --primary-color: #4361EE;    /* Azul vibrante */
+    --secondary-color: #3A0CA3;  /* Azul oscuro */
+    --accent-color: #7209B7;     /* Púrpura */
+    --success-color: #4CC9F0;    /* Azul claro */
+    --warning-color: #F72585;    /* Rosa vibrante */
+    --info-color: #4895EF;       /* Azul medio */
+    --light-color: #F8F9FA;      /* Blanco */
+    --dark-color: #212529;       /* Negro */
+    --gradient-1: linear-gradient(135deg, #4361EE, #3A0CA3);
+    --gradient-2: linear-gradient(135deg, #7209B7, #4361EE);
+    --gradient-3: linear-gradient(135deg, #4CC9F0, #4895EF);
+}
+
+/* Estilos específicos para la página de actividades */
+.activities-hero {
+    background: var(--gradient-1);
+    color: white;
+    padding: 100px 0;
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #fff, #4CC9F0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.game-preview {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    width: 120px;
+    animation: float 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.preview-card:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.preview-card i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.preview-card span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.card-2 {
+    top: 10%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.card-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+.card-4 {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+/* Estilos del juego mejorados */
+.game-section {
+    background: var(--light-color);
+}
+
+.game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(67, 97, 238, 0.1);
+    border: 2px solid rgba(67, 97, 238, 0.1);
+}
+
+.game-header {
+    margin-bottom: 2rem;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.game-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.stats-panel {
+    background: var(--gradient-3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 2px solid rgba(76, 201, 240, 0.2);
+    color: white;
+}
+
+.stat-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.stat-content .stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}
+
+.stat-content .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+
+/* Botones personalizados */
+.btn-game-primary {
+    background: var(--gradient-1);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-game-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+    color: white;
+}
+
+.btn-game-secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-game-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+}
+
+.btn-game-accent {
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-game-accent:hover {
+    background: #5a08a1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(114, 9, 183, 0.3);
+    color: white;
+}
+
+.game-controls {
+    margin: 2rem 0;
+}
+
+.progress-container {
+    margin: 2rem 0;
+}
+
+.progress {
+    height: 25px;
+    border-radius: 12px;
+    background: #e9ecef;
+    overflow: hidden;
+    border: 2px solid rgba(67, 97, 238, 0.1);
+}
+
+.progress-bar {
+    border-radius: 12px;
+    transition: width 0.5s ease, background-color 0.5s ease;
+    position: relative;
+}
+
+.progress-danger { background: var(--warning-color); }
+.progress-warning { background: #FF9E00; }
+.progress-info { background: var(--info-color); }
+.progress-success { background: var(--success-color); }
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.game-board-container {
+    background: var(--gradient-2);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    transition: all 0.5s ease;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-board-container.celebrating {
+    animation: celebrate 2s ease;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); box-shadow: 0 0 30px #FFD166; }
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    perspective: 1000px;
+}
+
+.memory-card {
+    height: 140px;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    cursor: default;
+    transform: rotateY(180deg) scale(0.95);
+    box-shadow: 0 0 20px var(--success-color);
+}
+
+.memory-card.success {
+    animation: success 0.5s ease;
+}
+
+.memory-card.error {
+    animation: error 0.5s ease;
+}
+
+@keyframes success {
+    0%, 100% { transform: rotateY(180deg) scale(1); }
+    50% { transform: rotateY(180deg) scale(1.1); box-shadow: 0 0 30px var(--success-color); }
+}
+
+@keyframes error {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px var(--warning-color); }
+}
+
+.memory-card .card-front,
+.memory-card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.memory-card .card-front {
+    background: var(--gradient-3);
+    color: white;
+}
+
+.memory-card .card-back {
+    background: white;
+    color: #333;
+    transform: rotateY(180deg);
+    text-align: center;
+    flex-direction: column;
+    border: 2px solid var(--primary-color);
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-content i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--primary-color);
+}
+
+.card-content h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dark-color);
+}
+
+.card-content small {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: #6c757d;
+}
+
+/* Alertas personalizadas */
+.alert-game-info {
+    background: var(--gradient-3);
+    border: none;
+    color: white;
+    border-radius: 15px;
+    border: 2px solid rgba(76, 201, 240, 0.2);
+}
+
+.alert-game-success {
+    background: var(--success-color);
+    border: none;
+    color: white;
+    border-radius: 15px;
+    border: 2px solid rgba(76, 201, 240, 0.3);
+}
+
+/* Sección de términos aprendidos */
+.learned-terms {
+    background: var(--light-color);
+}
+
+.term-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 2px solid rgba(67, 97, 238, 0.1);
+}
+
+.term-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.2);
+    border-color: var(--primary-color);
+}
+
+.term-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.term-card h5 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.term-card p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Sección de logros */
+.achievements-section {
+    background: var(--gradient-1);
+    color: white;
+}
+
+.achievement-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.achievement-icon.bronze {
+    background: linear-gradient(135deg, #CD7F32, #B08D57);
+}
+
+.achievement-icon.silver {
+    background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
+}
+
+.achievement-icon.gold {
+    background: linear-gradient(135deg, #FFD700, #DAA520);
+}
+
+.achievement-card h5 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.achievement-card p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.achievement-progress .progress {
+    height: 8px;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.achievement-progress .progress-bar {
+    background: var(--success-color);
+}
+
+.achievement-progress span {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Instrucciones */
+.instructions-card .card-header {
+    background: var(--gradient-1) !important;
+}
+
+.instruction-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.step-content h6 {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.step-content p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .memory-game {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .memory-card {
+        height: 120px;
+    }
+    
+    .stat-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .game-title {
+        font-size: 2rem;
+    }
+    
+    .game-controls .btn {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .memory-game {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .memory-card {
+        height: 100px;
+    }
+    
+    .card-content h6 {
+        font-size: 0.8rem;
+    }
+    
+    .card-content small {
+        font-size: 0.7rem;
+    }
+    
+    .game-controls .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Animaciones */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+</style>
+{% endblock %}

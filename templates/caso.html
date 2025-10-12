@@ -1,0 +1,704 @@
+{% extends "base.html" %}
+
+{% block title %}Caso Práctico - Forensic Digital{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="page-hero caso-hero">
+    <div class="container">
+        <div class="row align-items-center min-vh-80">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="hero-content">
+                    <div class="badge-container mb-4">
+                        <span class="hero-badge">🔎 Análisis Real</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Caso Práctico</span>
+                    </h1>
+                    <p class="hero-description">
+                        Investigación de Ciberacoso: Un caso real donde el análisis de evidencia digital 
+                        fue crucial para identificar al responsable y proteger a la víctima.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Caso Práctico -->
+<section class="content-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <!-- Escenario del Caso -->
+                <div class="content-card featured mb-5">
+                    <div class="card-header">
+                        <div class="header-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h2>Escenario del Caso</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="case-alert">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h5>Contexto</h5>
+                                <p class="mb-0">
+                                    Una empresa de tecnología reporta que uno de sus empleados, María González (Gerente de Proyectos), 
+                                    está recibiendo mensajes amenazantes y acosadores a través de su correo electrónico corporativo. 
+                                    Los mensajes comenzaron hace 3 semanas y han aumentado en frecuencia e intensidad.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="case-details mt-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="detail-item">
+                                        <i class="fas fa-user text-primary"></i>
+                                        <div class="detail-content">
+                                            <strong>Víctima</strong>
+                                            <span>María González - Gerente de Proyectos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="detail-item">
+                                        <i class="fas fa-building text-primary"></i>
+                                        <div class="detail-content">
+                                            <strong>Empresa</strong>
+                                            <span>TechSolutions Inc. - 250 empleados</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="detail-item">
+                                        <i class="fas fa-calendar text-primary"></i>
+                                        <div class="detail-content">
+                                            <strong>Duración</strong>
+                                            <span>3 semanas (mensajes en aumento)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="detail-item">
+                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                        <div class="detail-content">
+                                            <strong>Nivel de Amenaza</strong>
+                                            <span class="text-warning">Alto - Mensajes personales y amenazantes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proceso de Investigación -->
+                <div class="content-card mb-5">
+                    <div class="card-header">
+                        <h3>Proceso de Investigación</h3>
+                        <p class="text-muted">Metodología paso a paso aplicada en el caso</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="investigation-timeline">
+                            {% for step in [
+                                {
+                                    "number": "1",
+                                    "title": "Recolección de Evidencia",
+                                    "description": "Se obtienen copias forenses del equipo de María y se extraen los registros del servidor de correo corporativo.",
+                                    "actions": [
+                                        "Creación de imagen forense del laptop de María usando FTK Imager",
+                                        "Extracción de logs del servidor Exchange 2019",
+                                        "Preservación de headers de correos electrónicos",
+                                        "Documentación fotográfica del equipo"
+                                    ]
+                                },
+                                {
+                                    "number": "2",
+                                    "title": "Análisis de Correos Electrónicos",
+                                    "description": "Examen detallado de los encabezados de los mensajes para determinar el origen y patrones de envío.",
+                                    "actions": [
+                                        "Los mensajes provienen de diferentes direcciones IP",
+                                        "Patrón de envío: principalmente en horario laboral",
+                                        "Uso de servicios de correo temporales",
+                                        "Contenido específico sobre proyectos internos"
+                                    ]
+                                },
+                                {
+                                    "number": "3",
+                                    "title": "Investigación de Direcciones IP",
+                                    "description": "Rastreo de las direcciones IP utilizadas para enviar los mensajes y correlación con registros de red.",
+                                    "actions": [
+                                        "Geolocalización de direcciones IP",
+                                        "Consulta a registros WHOIS",
+                                        "Correlación con logs de firewall corporativo",
+                                        "Análisis de patrones temporales"
+                                    ]
+                                },
+                                {
+                                    "number": "4",
+                                    "title": "Análisis de Registros de Acceso",
+                                    "description": "Revisión exhaustiva de los logs de acceso al sistema de correo y autenticación de usuarios.",
+                                    "actions": [
+                                        "Múltiples accesos desde la misma IP interna",
+                                        "Horarios coincidentes con los envíos de mensajes",
+                                        "Accesos desde estación de trabajo específica",
+                                        "Patrón de actividad sospechosa"
+                                    ]
+                                },
+                                {
+                                    "number": "5",
+                                    "title": "Correlación de Evidencia",
+                                    "description": "Cruce de datos obtenidos para identificar patrones, conexiones y al responsable.",
+                                    "actions": [
+                                        "Análisis de línea de tiempo de eventos",
+                                        "Correlación IP-usuario-dispositivo",
+                                        "Reconstrucción de actividades",
+                                        "Validación de hipótesis"
+                                    ]
+                                }
+                            ] %}
+                            <div class="timeline-step">
+                                <div class="step-marker">
+                                    <span class="step-number">{{ step.number }}</span>
+                                </div>
+                                <div class="step-content">
+                                    <h4>{{ step.title }}</h4>
+                                    <p>{{ step.description }}</p>
+                                    <div class="step-actions">
+                                        <h6>Acciones Específicas:</h6>
+                                        <ul>
+                                            {% for action in step.actions %}
+                                            <li>{{ action }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hallazgos y Resultados -->
+                <div class="content-card mb-5">
+                    <div class="card-header">
+                        <h3>Hallazgos y Resultados</h3>
+                        <p class="text-muted">Evidencia concluyente y descubrimientos clave</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="findings-alert">
+                            <div class="alert-icon success">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h5>Descubrimiento Principal</h5>
+                                <p class="mb-0">
+                                    La investigación reveló que los mensajes provenían de una dirección IP interna de la empresa, 
+                                    específicamente de una estación de trabajo en el departamento de Recursos Humanos (IP: 192.168.1.45).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="findings-grid mt-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="finding-card">
+                                        <h5>Evidencia Conclusiva</h5>
+                                        <ul>
+                                            <li>Registros de acceso coincidentes con Carlos Méndez</li>
+                                            <li>Huellas digitales en el teclado de la estación</li>
+                                            <li>Archivos temporales con borradores de mensajes</li>
+                                            <li>Historial de navegación con búsquedas relacionadas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="finding-card">
+                                        <h5>Motivación</h5>
+                                        <ul>
+                                            <li>Descontento por promoción no recibida</li>
+                                            <li>Relación laboral previa conflictiva</li>
+                                            <li>Acceso a información confidencial de personal</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Línea de Tiempo de Evidencia -->
+                        <div class="evidence-timeline mt-4">
+                            <h5>Línea de Tiempo de Evidencia</h5>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">15 Mar</div>
+                                    <div class="timeline-content">
+                                        <strong>Primer mensaje recibido</strong>
+                                        <p>IP externa - servicio de correo temporal</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">22 Mar</div>
+                                    <div class="timeline-content">
+                                        <strong>Acceso no autorizado detectado</strong>
+                                        <p>Desde estación HR-045 fuera de horario</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">28 Mar</div>
+                                    <div class="timeline-content">
+                                        <strong>Evidencia concluyente</strong>
+                                        <p>Borradores encontrados en archivos temporales</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lecciones Aprendidas -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Lecciones Aprendidas y Recomendaciones</h3>
+                        <p class="text-muted">Mejoras implementadas y mejores prácticas</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="lessons-grid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="lesson-item">
+                                        <div class="lesson-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="lesson-content">
+                                            <h5>Seguridad de Correo</h5>
+                                            <p>Implementar autenticación multifactor para acceso a cuentas de correo corporativo.</p>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-item">
+                                        <div class="lesson-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="lesson-content">
+                                            <h5>Monitoreo Proactivo</h5>
+                                            <p>Establecer sistemas de alerta temprana para actividades sospechosas en la red.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="lesson-item">
+                                        <div class="lesson-icon">
+                                            <i class="fas fa-user-shield"></i>
+                                        </div>
+                                        <div class="lesson-content">
+                                            <h5>Políticas de Acceso</h5>
+                                            <p>Revisar y fortalecer políticas de control de acceso a información sensible.</p>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-item">
+                                        <div class="lesson-icon">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div class="lesson-content">
+                                            <h5>Capacitación</h5>
+                                            <p>Programas de concienciación sobre seguridad y reporte de incidentes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block styles %}
+<style>
+/* Estilos específicos para Caso Práctico */
+.caso-hero {
+    background: linear-gradient(135deg, #4CC9F0 0%, #4361EE 100%);
+    color: white;
+    padding: 120px 0 80px;
+}
+
+/* Case Alert */
+.case-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(23, 162, 184, 0.1);
+    border-radius: 15px;
+    border-left: 4px solid #17A2B8;
+}
+
+.alert-icon {
+    width: 50px;
+    height: 50px;
+    background: #17A2B8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.alert-icon.success {
+    background: #28A745;
+}
+
+.alert-content h5 {
+    margin-bottom: 0.5rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.alert-content p {
+    margin: 0;
+    color: #495057;
+    line-height: 1.5;
+}
+
+/* Case Details */
+.case-details {
+    margin-top: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(67, 97, 238, 0.05);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.detail-item i {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-content strong {
+    color: #343a40;
+    font-weight: 600;
+}
+
+.detail-content span {
+    color: #6c757d;
+}
+
+/* Investigation Timeline */
+.investigation-timeline {
+    position: relative;
+    padding-left: 60px;
+}
+
+.investigation-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #4361EE, #3A0CA3);
+    border-radius: 2px;
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.step-marker {
+    position: absolute;
+    left: -60px;
+    top: 0;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #4361EE;
+}
+
+.step-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
+    border: 2px solid rgba(67, 97, 238, 0.1);
+}
+
+.step-content h4 {
+    margin-bottom: 1rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: #495057;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.step-actions {
+    background: rgba(67, 97, 238, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4361EE;
+}
+
+.step-actions h6 {
+    margin-bottom: 1rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.step-actions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.step-actions li {
+    padding: 0.5rem 0;
+    color: #495057;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.step-actions li::before {
+    content: '•';
+    color: #4361EE;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Findings */
+.findings-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(40, 167, 69, 0.1);
+    border-radius: 15px;
+    border-left: 4px solid #28A745;
+}
+
+.findings-grid {
+    margin-top: 2rem;
+}
+
+.finding-card {
+    background: rgba(67, 97, 238, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid #4361EE;
+    height: 100%;
+}
+
+.finding-card h5 {
+    margin-bottom: 1rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.finding-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.finding-card li {
+    padding: 0.5rem 0;
+    color: #495057;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.finding-card li::before {
+    content: '✓';
+    color: #28A745;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Evidence Timeline */
+.evidence-timeline {
+    margin-top: 2rem;
+}
+
+.evidence-timeline h5 {
+    margin-bottom: 1.5rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 100px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #4361EE;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-date {
+    position: absolute;
+    left: -100px;
+    top: 0;
+    width: 80px;
+    text-align: right;
+    font-weight: 600;
+    color: #4361EE;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border: 2px solid rgba(67, 97, 238, 0.1);
+}
+
+.timeline-content strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #343a40;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Lessons Grid */
+.lessons-grid {
+    margin-bottom: 2rem;
+}
+
+.lesson-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(67, 97, 238, 0.05);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #4361EE;
+}
+
+.lesson-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.lesson-content h5 {
+    margin-bottom: 0.5rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.lesson-content p {
+    margin: 0;
+    color: #495057;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .investigation-timeline {
+        padding-left: 0;
+    }
+    
+    .investigation-timeline::before {
+        display: none;
+    }
+    
+    .step-marker {
+        position: static;
+        margin-bottom: 1rem;
+    }
+    
+    .timeline {
+        padding-left: 0;
+    }
+    
+    .timeline::before {
+        display: none;
+    }
+    
+    .timeline-date {
+        position: static;
+        margin-bottom: 0.5rem;
+        text-align: left;
+    }
+    
+    .case-alert,
+    .findings-alert,
+    .lesson-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .alert-icon,
+    .lesson-icon {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .detail-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-particles" id="particles-js"></div>
+    <div class="hero-content">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-text">
+                        <div class="badge-container mb-4">
+                            <span class="hero-badge">🔍 Esencial en la Era Digital</span>
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="gradient-text">Análisis de Evidencia Digital</span>
+                            <br>
+                            <span class="hero-subtitle">La Clave para la Justicia Moderna</span>
+                        </h1>
+                        <p class="hero-description">
+                            En un mundo donde el 90% de los delitos dejan rastro digital, el análisis forense 
+                            se ha convertido en la piedra angular de las investigaciones modernas. 
+                            Descubre por qué esta disciplina es crucial para combatir el cibercrimen.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="{{ url_for('evidencia') }}" class="btn btn-primary btn-hero">
+                                <i class="fas fa-shield-alt me-2"></i>
+                                Comenzar Exploración
+                            </a>
+                            <a href="{{ url_for('actividades') }}" class="btn btn-outline-light btn-hero">
+                                <i class="fas fa-gamepad me-2"></i>
+                                Actividad Interactiva
+                            </a>
+                              <a href="{{ url_for('quiz') }}" class="btn btn-outline-light btn-hero">
+                                <i class="fas fa-brain me-2"></i>
+                                Quiz
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-visual">
+                        <div class="floating-cards">
+                            <div class="card-floating card-1">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>Justicia</span>
+                            </div>
+                            <div class="card-floating card-2">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Seguridad</span>
+                            </div>
+                            <div class="card-floating card-3">
+                                <i class="fas fa-globe"></i>
+                                <span>Global</span>
+                            </div>
+                            <div class="card-floating card-4">
+                                <i class="fas fa-clock"></i>
+                                <span>Urgente</span>
+                            </div>
+                        </div>
+                        <div class="hero-main-card">
+                            <div class="main-card-content">
+                                <div class="card-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <h4>¿Sabías que?</h4>
+                                <p>El 85% de las empresas han sufrido incidentes de seguridad donde la evidencia digital fue crucial</p>
+                                <div class="card-badge">Dato Clave</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Sección de Características -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">¿Por qué el Análisis de Evidencia Digital es <span class="gradient-text">Crucial Hoy?</span></h2>
+            <p class="section-subtitle">En la era digital, la evidencia electrónica se ha convertido en el testigo silencioso más importante</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h4>Fundamental para la Justicia</h4>
+                    <p>Sin evidencia digital, el 70% de los casos modernos no podrían ser resueltos. Es la base de procesos legales en la era digital.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4>Protección Corporativa</h4>
+                    <p>Las empresas dependen del análisis forense digital para investigar fraudes, filtraciones de datos y proteger su propiedad intelectual.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-injured"></i>
+                    </div>
+                    <h4>Protección a Víctimas</h4>
+                    <p>Desde ciberacoso hasta suplantación de identidad, la evidencia digital es vital para proteger a las víctimas de delitos digitales.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h4>Ciberseguridad Nacional</h4>
+                    <p>La forensia digital es esencial para investigar ciberataques a infraestructuras críticas y proteger la seguridad nacional.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Evidencia Omnipresente</h4>
+                    <p>Con 6.000 millones de smartphones en el mundo, cada persona genera evidencia digital constantemente.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Crecimiento Exponencial</h4>
+                    <p>La demanda de expertos en forensia digital crece un 28% anual, superando la oferta de profesionales calificados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Módulos Destacados -->
+<section class="modules-section py-5 bg-light">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Áreas donde la Evidencia Digital es <span class="gradient-text">Determinante</span></h2>
+            <p class="section-subtitle">Campos donde el análisis forense digital marca la diferencia</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                    </div>
+                    <h4>Investigación Criminal</h4>
+                    <p>Desde homicidios hasta narcotráfico, la evidencia digital proporciona patrones de comportamiento, ubicaciones y comunicaciones cruciales.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> +80% de casos resueltos</li>
+                        <li><i class="fas fa-check"></i> Ubicaciones GPS</li>
+                        <li><i class="fas fa-check"></i> Comunicaciones digitales</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="module-card featured">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                    <h4>Investigación Empresarial</h4>
+                    <p>Fraudes internos, espionaje industrial, filtraciones de datos y robo de propiedad intelectual dependen del análisis forense.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> $1.7T en fraudes</li>
+                        <li><i class="fas fa-check"></i> Filtraciones de datos</li>
+                        <li><i class="fas fa-check"></i> Espionaje industrial</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <h4>Ciberseguridad</h4>
+                    <p>Análisis de brechas de seguridad, investigación de ciberataques y protección de infraestructuras críticas nacionales.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> +200 ataques/día</li>
+                        <li><i class="fas fa-check"></i> Brechas de seguridad</li>
+                        <li><i class="fas fa-check"></i> Infraestructura crítica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección CTA Final Simplificada -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="cta-card text-center">
+            <h3>Explorar más conceptos</h3>
+            <p class="mb-4">Descubre técnicas, principios y casos prácticos para dominar el análisis de evidencia digital</p>
+            <a href="{{ url_for('evidencia') }}" class="btn btn-light btn-cta">
+                <i class="fas fa-book me-2"></i>
+                Que es Evidencia Digital
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+// Inicializar partículas
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+    }
+
+    // Scroll suave
+    document.querySelector('.hero-scroll-indicator').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: document.querySelector('.features-section').offsetTop,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+{% endblock %}

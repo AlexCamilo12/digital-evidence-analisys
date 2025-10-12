@@ -1,0 +1,500 @@
+{% extends "base.html" %}
+
+{% block title %}Principios de Evidencia Digital - Forensic Digital{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="page-hero principios-hero">
+    <div class="container">
+        <div class="row align-items-center min-vh-80">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="hero-content">
+                    <div class="badge-container mb-4">
+                        <span class="hero-badge">⚖️ Fundamentos Éticos</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Principios de la Evidencia Digital</span>
+                    </h1>
+                    <p class="hero-description">
+                        Los principios fundamentales que garantizan la validez, integridad y admisibilidad 
+                        de la evidencia digital en procesos legales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Principios -->
+<section class="content-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <!-- Introducción -->
+                <div class="content-card featured mb-5">
+                    <div class="card-body text-center">
+                        <div class="principle-icon-large mb-4">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h2>Fundamentos Éticos del Análisis Forense Digital</h2>
+                        <p class="lead mb-0">
+                            Estos principios guían todo el proceso de manejo de evidencia digital, desde la recolección 
+                            hasta la presentación en juicio, garantizando su validez legal y científica.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lista de Principios -->
+                <div class="principles-list">
+                    {% for principio in [
+                        {
+                            "number": "1",
+                            "title": "Integridad",
+                            "description": "La evidencia digital debe mantenerse inalterada durante todo el proceso de recolección, análisis y presentación. Cualquier modificación debe documentarse completamente.",
+                            "icon": "fas fa-shield-alt",
+                            "applications": [
+                                "Uso de funciones hash para verificar integridad",
+                                "Documentación de todo el proceso",
+                                "Manejo con herramientas forenses validadas"
+                            ]
+                        },
+                        {
+                            "number": "2",
+                            "title": "Autenticidad",
+                            "description": "Debe poder verificarse que la evidencia es genuina y proviene de la fuente declarada. Esto incluye validar la procedencia y la no alteración de los datos.",
+                            "icon": "fas fa-fingerprint",
+                            "applications": [
+                                "Verificación de metadatos",
+                                "Validación de fuentes y procedencia",
+                                "Certificación de herramientas utilizadas"
+                            ]
+                        },
+                        {
+                            "number": "3",
+                            "title": "Repetibilidad",
+                            "description": "Los procesos forenses deben poder repetirse por otros expertos independientes, obteniendo los mismos resultados para validar los hallazgos.",
+                            "icon": "fas fa-redo",
+                            "applications": [
+                                "Documentación detallada de metodologías",
+                                "Uso de herramientas estándar de la industria",
+                                "Procedimientos replicables y verificables"
+                            ]
+                        },
+                        {
+                            "number": "4",
+                            "title": "Documentación",
+                            "description": "Todo el proceso de manejo de evidencia debe documentarse minuciosamente, incluyendo quién, cuándo, cómo y por qué se realizó cada acción.",
+                            "icon": "fas fa-clipboard-list",
+                            "applications": [
+                                "Registros detallados de cada paso",
+                                "Fotografías y videos del proceso",
+                                "Informes forenses completos"
+                            ]
+                        },
+                        {
+                            "number": "5",
+                            "title": "Cadena de Custodia",
+                            "description": "Debe mantenerse un registro completo de todas las personas que han tenido acceso a la evidencia, desde su recolección hasta su presentación en juicio.",
+                            "icon": "fas fa-link",
+                            "applications": [
+                                "Registro de cada transferencia de custodia",
+                                "Control de acceso a la evidencia",
+                                "Documentación de almacenamiento seguro"
+                            ]
+                        }
+                    ] %}
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <div class="principle-number">
+                                {{ principio.number }}
+                            </div>
+                            <div class="principle-title">
+                                <h3>{{ principio.title }}</h3>
+                                <div class="principle-icon">
+                                    <i class="{{ principio.icon }}"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="principle-body">
+                            <p class="principle-description">{{ principio.description }}</p>
+                            <div class="principle-applications">
+                                <h5>Aplicación Práctica:</h5>
+                                <ul>
+                                    {% for app in principio.applications %}
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        {{ app }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Tabla Resumen -->
+                <div class="content-card mt-5">
+                    <div class="card-header">
+                        <h3>Resumen de Principios Forenses</h3>
+                        <p class="text-muted">Visión general de objetivos y herramientas de verificación</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="principles-table">
+                                <thead>
+                                    <tr>
+                                        <th>Principio</th>
+                                        <th>Objetivo</th>
+                                        <th>Herramientas de Verificación</th>
+                                        <th>Impacto Legal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Integridad</strong></td>
+                                        <td>Garantizar que la evidencia no ha sido alterada</td>
+                                        <td>Hash MD5/SHA, write-blockers</td>
+                                        <td>Determina la admisibilidad</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Autenticidad</strong></td>
+                                        <td>Verificar el origen y validez de la evidencia</td>
+                                        <td>Metadatos, certificados digitales</td>
+                                        <td>Establece la procedencia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Repetibilidad</strong></td>
+                                        <td>Permitir la verificación independiente</td>
+                                        <td>Documentación, herramientas estándar</td>
+                                        <td>Fortalece la credibilidad</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Documentación</strong></td>
+                                        <td>Registrar todo el proceso forense</td>
+                                        <td>Informes, fotografías, logs</td>
+                                        <td>Proporciona transparencia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cadena de Custodia</strong></td>
+                                        <td>Rastrear el manejo de la evidencia</td>
+                                        <td>Formularios de custodia, registros</td>
+                                        <td>Garantiza la trazabilidad</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mejores Prácticas -->
+                <div class="content-card mt-5">
+                    <div class="card-header">
+                        <h3>Mejores Prácticas Recomendadas</h3>
+                        <p class="text-muted">Guías esenciales para el manejo profesional de evidencia digital</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="best-practices-grid">
+                            <div class="practice-item">
+                                <div class="practice-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="practice-content">
+                                    <h5>Uso de Herramientas Validadas</h5>
+                                    <p>Emplear software forense reconocido y certificado por la comunidad científica y legal.</p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <div class="practice-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="practice-content">
+                                    <h5>Documentación Visual</h5>
+                                    <p>Capturar fotografías y videos del estado original de los dispositivos y el proceso de análisis.</p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <div class="practice-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="practice-content">
+                                    <h5>Protección Física</h5>
+                                    <p>Almacenar evidencia en áreas seguras con control de acceso y condiciones ambientales controladas.</p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <div class="practice-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="practice-content">
+                                    <h5>Preservación Inmediata</h5>
+                                    <p>Actuar rápidamente para preservar evidencia volátil antes de que se pierda.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block styles %}
+<style>
+/* Estilos específicos para Principios */
+.principios-hero {
+    background: linear-gradient(135deg, #3A0CA3 0%, #7209B7 100%);
+    color: white;
+    padding: 120px 0 80px;
+}
+
+.principle-icon-large {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    margin: 0 auto;
+}
+
+/* Principles List */
+.principles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.principle-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(58, 12, 163, 0.1);
+    border: 2px solid rgba(58, 12, 163, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(58, 12, 163, 0.15);
+}
+
+.principle-header {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9ff, #ffffff);
+    border-bottom: 2px solid rgba(58, 12, 163, 0.1);
+}
+
+.principle-number {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.principle-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.principle-title h3 {
+    margin: 0;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.principle-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(67, 97, 238, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4361EE;
+    font-size: 1.5rem;
+}
+
+.principle-body {
+    padding: 2rem;
+}
+
+.principle-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #495057;
+    margin-bottom: 2rem;
+}
+
+.principle-applications {
+    background: rgba(67, 97, 238, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid #4361EE;
+}
+
+.principle-applications h5 {
+    color: #343a40;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.principle-applications ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.principle-applications li {
+    padding: 0.5rem 0;
+    color: #495057;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.principle-applications li i {
+    color: #28a745;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+/* Principles Table */
+.principles-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.principles-table th {
+    background: linear-gradient(135deg, #3A0CA3, #7209B7);
+    color: white;
+    padding: 1.5rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.principles-table td {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    color: #495057;
+}
+
+.principles-table tr:last-child td {
+    border-bottom: none;
+}
+
+.principles-table tr:hover {
+    background: rgba(58, 12, 163, 0.05);
+}
+
+/* Best Practices Grid */
+.best-practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.practice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(67, 97, 238, 0.05);
+    border-radius: 15px;
+    border-left: 4px solid #4361EE;
+    transition: all 0.3s ease;
+}
+
+.practice-item:hover {
+    background: rgba(67, 97, 238, 0.1);
+    transform: translateX(5px);
+}
+
+.practice-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.practice-content h5 {
+    margin-bottom: 0.5rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.practice-content p {
+    margin: 0;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .principle-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .principle-number {
+        margin-right: 0;
+    }
+    
+    .principle-title {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .best-practices-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .practice-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .practice-icon {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .principles-table {
+        font-size: 0.9rem;
+    }
+    
+    .principles-table th,
+    .principles-table td {
+        padding: 1rem;
+    }
+}
+</style>
+{% endblock %}
