@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Caso Práctico - Forensic Digital{% endblock %}
+{% block title %}Caso Práctico - Ejército Nacional de Colombia{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -10,14 +10,14 @@
             <div class="col-lg-8 mx-auto text-center">
                 <div class="hero-content">
                     <div class="badge-container mb-4">
-                        <span class="hero-badge">🔎 Análisis Real</span>
+                        <span class="hero-badge">🔎 Ejército Nacional</span>
                     </div>
                     <h1 class="hero-title">
-                        <span class="gradient-text">Caso Práctico</span>
+                        <span class="gradient-text">Operación Escudo</span>
                     </h1>
                     <p class="hero-description">
-                        Investigación de Ciberacoso: Un caso real donde el análisis de evidencia digital 
-                        fue crucial para identificar al responsable y proteger a la víctima.
+                        Caso real donde el análisis de evidencia digital fue crucial para proteger información estratégica del
+                        Ejército Nacional de Colombia contra amenazas cibernéticas.
                     </p>
                 </div>
             </div>
@@ -34,9 +34,9 @@
                 <div class="content-card featured mb-5">
                     <div class="card-header">
                         <div class="header-icon">
-                            <i class="fas fa-search"></i>
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h2>Escenario del Caso</h2>
+                        <h2>Escenario de la Operación</h2>
                     </div>
                     <div class="card-body">
                         <div class="case-alert">
@@ -44,11 +44,13 @@
                                 <i class="fas fa-info-circle"></i>
                             </div>
                             <div class="alert-content">
-                                <h5>Contexto</h5>
+                                <h5>Contexto Operacional</h5>
                                 <p class="mb-0">
-                                    Una empresa de tecnología reporta que uno de sus empleados, María González (Gerente de Proyectos), 
-                                    está recibiendo mensajes amenazantes y acosadores a través de su correo electrónico corporativo. 
-                                    Los mensajes comenzaron hace 3 semanas y han aumentado en frecuencia e intensidad.
+                                    El Comando Conjunto Cibernético del Ejército Nacional reporta actividad sospechosa 
+                                    en el Sistema Integrado de Comando y Control (SICC). Se detectan accesos no autorizados 
+                                    a información clasificada sobre operaciones contra grupos armados organizados y 
+                                    despliegues tácticos en zonas de conflicto. La infiltración al sistema comenzó hace 96 horas 
+                                    durante operaciones especiales en la región del Catatumbo.
                                 </p>
                             </div>
                         </div>
@@ -57,28 +59,28 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="detail-item">
-                                        <i class="fas fa-user text-primary"></i>
+                                        <i class="fas fa-map-marker-alt text-primary"></i>
                                         <div class="detail-content">
-                                            <strong>Víctima</strong>
-                                            <span>María González - Gerente de Proyectos</span>
+                                            <strong>Unidad Afectada</strong>
+                                            <span>Comando Conjunto Cibernético - SICC</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-item">
-                                        <i class="fas fa-building text-primary"></i>
+                                        <i class="fas fa-flag text-primary"></i>
                                         <div class="detail-content">
-                                            <strong>Empresa</strong>
-                                            <span>TechSolutions Inc. - 250 empleados</span>
+                                            <strong>Clasificación</strong>
+                                            <span>RESERVADO - Información Estratégica Nacional</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-item">
-                                        <i class="fas fa-calendar text-primary"></i>
+                                        <i class="fas fa-clock text-primary"></i>
                                         <div class="detail-content">
-                                            <strong>Duración</strong>
-                                            <span>3 semanas (mensajes en aumento)</span>
+                                            <strong>Duración de Intrusión</strong>
+                                            <span>96 horas (durante operación Catatumbo)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +89,7 @@
                                         <i class="fas fa-exclamation-triangle text-warning"></i>
                                         <div class="detail-content">
                                             <strong>Nivel de Amenaza</strong>
-                                            <span class="text-warning">Alto - Mensajes personales y amenazantes</span>
+                                            <span class="text-warning">ALTA - Compromiso Seguridad Nacional</span>
                                         </div>
                                     </div>
                                 </div>
@@ -99,65 +101,65 @@
                 <!-- Proceso de Investigación -->
                 <div class="content-card mb-5">
                     <div class="card-header">
-                        <h3>Proceso de Investigación</h3>
-                        <p class="text-muted">Metodología paso a paso aplicada en el caso</p>
+                        <h3>Proceso de Investigación Forense</h3>
+                        <p class="text-muted">Protocolo de respuesta ante incidentes cibernéticos</p>
                     </div>
                     <div class="card-body">
                         <div class="investigation-timeline">
                             {% for step in [
                                 {
                                     "number": "1",
-                                    "title": "Recolección de Evidencia",
-                                    "description": "Se obtienen copias forenses del equipo de María y se extraen los registros del servidor de correo corporativo.",
+                                    "title": "Activación Protocolo de Contención",
+                                    "description": "Activación inmediata del protocolo de cuarentena según directivas del Comando Cibernético y aislamiento de sistemas comprometidos.",
                                     "actions": [
-                                        "Creación de imagen forense del laptop de María usando FTK Imager",
-                                        "Extracción de logs del servidor Exchange 2019",
-                                        "Preservación de headers de correos electrónicos",
-                                        "Documentación fotográfica del equipo"
+                                        "Aislamiento de segmentos de red del SICC.",
+                                        "Clonación forense de servidores estratégicos.",
+                                        "Preservación de logs de seguridad militar.",
+                                        "Activación de sistemas de respaldo en CCOC."
                                     ]
                                 },
                                 {
                                     "number": "2",
-                                    "title": "Análisis de Correos Electrónicos",
-                                    "description": "Examen detallado de los encabezados de los mensajes para determinar el origen y patrones de envío.",
+                                    "title": "Análisis de Logs del Sistema Cibernético",
+                                    "description": "Examen exhaustivo de registros del Sistema de Detección de Intrusos (SDI) y firewall perimetral de las Fuerzas Militares.",
                                     "actions": [
-                                        "Los mensajes provienen de diferentes direcciones IP",
-                                        "Patrón de envío: principalmente en horario laboral",
-                                        "Uso de servicios de correo temporales",
-                                        "Contenido específico sobre proyectos internos"
+                                        "Análisis de accesos desde IPs internacionales.",
+                                        "Correlación con inteligencia de amenazas DNI.",
+                                        "Identificación de patrones de APT regionales.",
+                                        "Detección de movimiento lateral en red SICC."
                                     ]
                                 },
                                 {
                                     "number": "3",
-                                    "title": "Investigación de Direcciones IP",
-                                    "description": "Rastreo de las direcciones IP utilizadas para enviar los mensajes y correlación con registros de red.",
+                                    "title": "Investigación de Comunicaciones Comprometidas",
+                                    "description": "Rastreo de conexiones externas hacia servidores sospechosos y análisis de tráfico de red del Comando.",
                                     "actions": [
-                                        "Geolocalización de direcciones IP",
-                                        "Consulta a registros WHOIS",
-                                        "Correlación con logs de firewall corporativo",
-                                        "Análisis de patrones temporales"
+                                        "Geolocalización de servidores en Venezuela y Rusia.",
+                                        "Análisis de protocolos de exfiltración de datos.",
+                                        "Reconstrucción de sesiones SSH comprometidas.",
+                                        "Identificación de técnicas de evasión."
                                     ]
                                 },
                                 {
                                     "number": "4",
-                                    "title": "Análisis de Registros de Acceso",
-                                    "description": "Revisión exhaustiva de los logs de acceso al sistema de correo y autenticación de usuarios.",
+                                    "title": "Análisis de Estaciones de Comando",
+                                    "description": "Examen forense de estaciones de trabajo en Comando Conjunto y servidores del Sistema de Comando.",
                                     "actions": [
-                                        "Múltiples accesos desde la misma IP interna",
-                                        "Horarios coincidentes con los envíos de mensajes",
-                                        "Accesos desde estación de trabajo específica",
-                                        "Patrón de actividad sospechosa"
+                                        "Búsqueda de malware tipo Keylogger y RAT.",
+                                        "Análisis de memoria RAM de servidores críticos.",
+                                        "Recuperación de archivos ofuscados .tmp.",
+                                        "Verificación de integridad de sistemas tácticos."
                                     ]
                                 },
                                 {
                                     "number": "5",
-                                    "title": "Correlación de Evidencia",
-                                    "description": "Cruce de datos obtenidos para identificar patrones, conexiones y al responsable.",
+                                    "title": "Correlación con Inteligencia Militar",
+                                    "description": "Integración de hallazgos con inteligencia del DNI y patrones de grupos cibernéticos activos en la región.",
                                     "actions": [
-                                        "Análisis de línea de tiempo de eventos",
-                                        "Correlación IP-usuario-dispositivo",
-                                        "Reconstrucción de actividades",
-                                        "Validación de hipótesis"
+                                        "Comparación con TTPs de APT28 y Lazarus.",
+                                        "Análisis de IOC compartidos por OEA.",
+                                        "Evaluación de impacto en operaciones tácticas.",
+                                        "Coordinación con Cybercom para contramedidas."
                                     ]
                                 }
                             ] %}
@@ -187,7 +189,7 @@
                 <div class="content-card mb-5">
                     <div class="card-header">
                         <h3>Hallazgos y Resultados</h3>
-                        <p class="text-muted">Evidencia concluyente y descubrimientos clave</p>
+                        <p class="text-muted">Evidencia concluyente y descubrimientos críticos para la seguridad nacional</p>
                     </div>
                     <div class="card-body">
                         <div class="findings-alert">
@@ -195,10 +197,12 @@
                                 <i class="fas fa-check-circle"></i>
                             </div>
                             <div class="alert-content">
-                                <h5>Descubrimiento Principal</h5>
+                                <h5>Descubrimiento Principal - Amenaza APT Confirmada</h5>
                                 <p class="mb-0">
-                                    La investigación reveló que los mensajes provenían de una dirección IP interna de la empresa, 
-                                    específicamente de una estación de trabajo en el departamento de Recursos Humanos (IP: 192.168.1.45).
+                                    La investigación confirmó un ataque de Advanced Persistent Threat (APT) coordinado 
+                                    que utilizó spear-phishing dirigido a oficiales del Estado Mayor, seguido de 
+                                    movimiento lateral hacia sistemas del Comando Conjunto Cibernético. Se identificó 
+                                    exfiltración de datos sobre operaciones en frontera y despliegues tácticos.
                                 </p>
                             </div>
                         </div>
@@ -207,22 +211,23 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="finding-card">
-                                        <h5>Evidencia Conclusiva</h5>
+                                        <h5>Evidencia Conclusiva Identificada</h5>
                                         <ul>
-                                            <li>Registros de acceso coincidentes con Carlos Méndez</li>
-                                            <li>Huellas digitales en el teclado de la estación</li>
-                                            <li>Archivos temporales con borradores de mensajes</li>
-                                            <li>Historial de navegación con búsquedas relacionadas</li>
+                                            <li>Correos de phishing con documentos "Operación_Catatumbo.pdf.exe"</li>
+                                            <li>RAT (Remote Access Trojan) en estaciones de comando</li>
+                                            <li>Conexiones a servidores C&C en Venezuela y Rusia</li>
+                                            <li>Logs de acceso a archivos de despliegue táctico</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="finding-card">
-                                        <h5>Motivación</h5>
+                                        <h5>Técnicas de Ataque Identificadas</h5>
                                         <ul>
-                                            <li>Descontento por promoción no recibida</li>
-                                            <li>Relación laboral previa conflictiva</li>
-                                            <li>Acceso a información confidencial de personal</li>
+                                            <li>Living-off-the-land binaries (uso de herramientas nativas)</li>
+                                            <li>Credential dumping de cuentas de administrador</li>
+                                            <li>Comunicaciones cifradas con protocolos custom</li>
+                                            <li>Persistencia mediante servicios Windows legítimos</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -231,27 +236,27 @@
 
                         <!-- Línea de Tiempo de Evidencia -->
                         <div class="evidence-timeline mt-4">
-                            <h5>Línea de Tiempo de Evidencia</h5>
+                            <h5>Línea de Tiempo del Incidente - Cronología Operacional</h5>
                             <div class="timeline">
                                 <div class="timeline-item">
-                                    <div class="timeline-date">15 Mar</div>
+                                    <div class="timeline-date">Día 1</div>
                                     <div class="timeline-content">
-                                        <strong>Primer mensaje recibido</strong>
-                                        <p>IP externa - servicio de correo temporal</p>
+                                        <strong>Inicio del ataque coordinado</strong>
+                                        <p>Spear-phishing a oficiales del Estado Mayor General</p>
                                     </div>
                                 </div>
                                 <div class="timeline-item">
-                                    <div class="timeline-date">22 Mar</div>
+                                    <div class="timeline-date">Día 2-3</div>
                                     <div class="timeline-content">
-                                        <strong>Acceso no autorizado detectado</strong>
-                                        <p>Desde estación HR-045 fuera de horario</p>
+                                        <strong>Movimiento lateral detectado</strong>
+                                        <p>Accesos desde estaciones comprometidas al SICC</p>
                                     </div>
                                 </div>
                                 <div class="timeline-item">
-                                    <div class="timeline-date">28 Mar</div>
+                                    <div class="timeline-date">Día 4</div>
                                     <div class="timeline-content">
-                                        <strong>Evidencia concluyente</strong>
-                                        <p>Borradores encontrados en archivos temporales</p>
+                                        <strong>Evidencia concluyente obtenida</strong>
+                                        <p>Captura de exfiltración de datos operacionales clasificados</p>
                                     </div>
                                 </div>
                             </div>
@@ -262,8 +267,8 @@
                 <!-- Lecciones Aprendidas -->
                 <div class="content-card">
                     <div class="card-header">
-                        <h3>Lecciones Aprendidas y Recomendaciones</h3>
-                        <p class="text-muted">Mejoras implementadas y mejores prácticas</p>
+                        <h3>Lecciones Aprendidas y Mejoras Implementadas</h3>
+                        <p class="text-muted">Reforzamiento de capacidades de ciberdefensa - Ejército Nacional</p>
                     </div>
                     <div class="card-body">
                         <div class="lessons-grid">
@@ -271,42 +276,63 @@
                                 <div class="col-md-6">
                                     <div class="lesson-item">
                                         <div class="lesson-icon">
-                                            <i class="fas fa-envelope"></i>
+                                            <i class="fas fa-user-shield"></i>
                                         </div>
                                         <div class="lesson-content">
-                                            <h5>Seguridad de Correo</h5>
-                                            <p>Implementar autenticación multifactor para acceso a cuentas de correo corporativo.</p>
+                                            <h5>Capacitación en Conciencia Cibernética</h5>
+                                            <p>Implementación del Programa de Conciencia Cibernética para todo el personal del Ejército, con énfasis en identificación de phishing dirigido.</p>
                                         </div>
                                     </div>
                                     <div class="lesson-item">
                                         <div class="lesson-icon">
-                                            <i class="fas fa-chart-line"></i>
+                                            <i class="fas fa-network-wired"></i>
                                         </div>
                                         <div class="lesson-content">
-                                            <h5>Monitoreo Proactivo</h5>
-                                            <p>Establecer sistemas de alerta temprana para actividades sospechosas en la red.</p>
+                                            <h5>Segmentación de Red Estratégica</h5>
+                                            <p>Establecimiento de microsegmentación avanzada en el SICC y controles de acceso basados en roles para información clasificada.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="lesson-item">
                                         <div class="lesson-icon">
-                                            <i class="fas fa-user-shield"></i>
+                                            <i class="fas fa-bell"></i>
                                         </div>
                                         <div class="lesson-content">
-                                            <h5>Políticas de Acceso</h5>
-                                            <p>Revisar y fortalecer políticas de control de acceso a información sensible.</p>
+                                            <h5>Monitoreo Continuo Mejorado</h5>
+                                            <p>Despliegue del Sistema de Monitoreo Cibernético Integrado (SMCI) con capacidades EDR avanzadas en todos los comandos.</p>
                                         </div>
                                     </div>
                                     <div class="lesson-item">
                                         <div class="lesson-icon">
-                                            <i class="fas fa-graduation-cap"></i>
+                                            <i class="fas fa-sync-alt"></i>
                                         </div>
                                         <div class="lesson-content">
-                                            <h5>Capacitación</h5>
-                                            <p>Programas de concienciación sobre seguridad y reporte de incidentes.</p>
+                                            <h5>Respuesta a Incidentes Estandarizada</h5>
+                                            <p>Implementación de protocolos estandarizados de respuesta a incidentes cibernéticos en coordinación con el Cybercom colombiano.</p>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medidas Específicas Ejército -->
+                        <div class="additional-measures mt-4">
+                            <h5>Medidas Específicas Implementadas - Fuerzas Militares</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Creación del Comando Cibernético Conjunto</strong></li>
+                                        <li><strong>Fortalecimiento del Centro Cibernético de Operaciones (CCOC)</strong></li>
+                                        <li><strong>Implementación del Sistema de Comando y Control Cibernético (S3C)</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Capacitación con CERT Colombia y OEA</strong></li>
+                                        <li><strong>Ejercicios cibernéticos conjuntos con países aliados</strong></li>
+                                        <li><strong>Desarrollo de capacidades de ciberinteligencia</strong></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -320,28 +346,28 @@
 
 {% block styles %}
 <style>
-/* Estilos específicos para Caso Práctico */
+/* Estilos específicos para Caso Práctico - Ejército Nacional de Colombia */
 .caso-hero {
-    background: linear-gradient(135deg, #4CC9F0 0%, #4361EE 100%);
+    background: linear-gradient(135deg, #0033a0 0%, #ffcd00 50%, #ce1126 100%);
     color: white;
     padding: 120px 0 80px;
 }
 
-/* Case Alert */
+/* Case Alert Ejército */
 .case-alert {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     padding: 1.5rem;
-    background: rgba(23, 162, 184, 0.1);
+    background: rgba(0, 51, 160, 0.1);
     border-radius: 15px;
-    border-left: 4px solid #17A2B8;
+    border-left: 4px solid #0033a0;
 }
 
 .alert-icon {
     width: 50px;
     height: 50px;
-    background: #17A2B8;
+    background: #0033a0;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -352,12 +378,12 @@
 }
 
 .alert-icon.success {
-    background: #28A745;
+    background: #ce1126;
 }
 
 .alert-content h5 {
     margin-bottom: 0.5rem;
-    color: #343a40;
+    color: #0033a0;
     font-weight: 600;
 }
 
@@ -367,7 +393,7 @@
     line-height: 1.5;
 }
 
-/* Case Details */
+/* Case Details Ejército */
 .case-details {
     margin-top: 2rem;
 }
@@ -377,14 +403,16 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: rgba(67, 97, 238, 0.05);
+    background: rgba(0, 51, 160, 0.05);
     border-radius: 10px;
     margin-bottom: 1rem;
+    border-left: 3px solid #0033a0;
 }
 
 .detail-item i {
     font-size: 1.5rem;
     flex-shrink: 0;
+    color: #0033a0;
 }
 
 .detail-content {
@@ -393,7 +421,7 @@
 }
 
 .detail-content strong {
-    color: #343a40;
+    color: #0033a0;
     font-weight: 600;
 }
 
@@ -401,7 +429,7 @@
     color: #6c757d;
 }
 
-/* Investigation Timeline */
+/* Investigation Timeline Ejército */
 .investigation-timeline {
     position: relative;
     padding-left: 60px;
@@ -414,7 +442,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, #4361EE, #3A0CA3);
+    background: linear-gradient(to bottom, #0033a0, #ce1126);
     border-radius: 2px;
 }
 
@@ -435,7 +463,7 @@
 .step-number {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    background: linear-gradient(135deg, #0033a0, #ce1126);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -444,20 +472,20 @@
     font-weight: 700;
     font-size: 1.1rem;
     border: 3px solid white;
-    box-shadow: 0 0 0 3px #4361EE;
+    box-shadow: 0 0 0 3px #0033a0;
 }
 
 .step-content {
     background: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
-    border: 2px solid rgba(67, 97, 238, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 51, 160, 0.1);
+    border: 2px solid rgba(0, 51, 160, 0.1);
 }
 
 .step-content h4 {
     margin-bottom: 1rem;
-    color: #343a40;
+    color: #0033a0;
     font-weight: 600;
 }
 
@@ -468,15 +496,15 @@
 }
 
 .step-actions {
-    background: rgba(67, 97, 238, 0.05);
+    background: rgba(0, 51, 160, 0.05);
     padding: 1.5rem;
     border-radius: 10px;
-    border-left: 4px solid #4361EE;
+    border-left: 4px solid #0033a0;
 }
 
 .step-actions h6 {
     margin-bottom: 1rem;
-    color: #343a40;
+    color: #0033a0;
     font-weight: 600;
 }
 
@@ -495,21 +523,21 @@
 
 .step-actions li::before {
     content: '•';
-    color: #4361EE;
+    color: #0033a0;
     font-weight: bold;
     position: absolute;
     left: 0;
 }
 
-/* Findings */
+/* Findings Ejército */
 .findings-alert {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     padding: 1.5rem;
-    background: rgba(40, 167, 69, 0.1);
+    background: rgba(206, 17, 38, 0.1);
     border-radius: 15px;
-    border-left: 4px solid #28A745;
+    border-left: 4px solid #ce1126;
 }
 
 .findings-grid {
@@ -517,16 +545,16 @@
 }
 
 .finding-card {
-    background: rgba(67, 97, 238, 0.05);
+    background: rgba(0, 51, 160, 0.05);
     padding: 1.5rem;
     border-radius: 15px;
-    border-left: 4px solid #4361EE;
+    border-left: 4px solid #0033a0;
     height: 100%;
 }
 
 .finding-card h5 {
     margin-bottom: 1rem;
-    color: #343a40;
+    color: #0033a0;
     font-weight: 600;
 }
 
@@ -545,20 +573,20 @@
 
 .finding-card li::before {
     content: '✓';
-    color: #28A745;
+    color: #ce1126;
     font-weight: bold;
     position: absolute;
     left: 0;
 }
 
-/* Evidence Timeline */
+/* Evidence Timeline Ejército */
 .evidence-timeline {
     margin-top: 2rem;
 }
 
 .evidence-timeline h5 {
     margin-bottom: 1.5rem;
-    color: #343a40;
+    color: #0033a0;
     font-weight: 600;
 }
 
@@ -574,7 +602,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #4361EE;
+    background: #0033a0;
 }
 
 .timeline-item {
@@ -589,20 +617,20 @@
     width: 80px;
     text-align: right;
     font-weight: 600;
-    color: #4361EE;
+    color: #0033a0;
 }
 
 .timeline-content {
     background: white;
     padding: 1rem 1.5rem;
     border-radius: 10px;
-    border: 2px solid rgba(67, 97, 238, 0.1);
+    border: 2px solid rgba(0, 51, 160, 0.1);
 }
 
 .timeline-content strong {
     display: block;
     margin-bottom: 0.25rem;
-    color: #343a40;
+    color: #0033a0;
 }
 
 .timeline-content p {
@@ -611,7 +639,7 @@
     font-size: 0.9rem;
 }
 
-/* Lessons Grid */
+/* Lessons Grid Ejército */
 .lessons-grid {
     margin-bottom: 2rem;
 }
@@ -621,16 +649,16 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 1.5rem;
-    background: rgba(67, 97, 238, 0.05);
+    background: rgba(0, 51, 160, 0.05);
     border-radius: 15px;
     margin-bottom: 1rem;
-    border-left: 4px solid #4361EE;
+    border-left: 4px solid #0033a0;
 }
 
 .lesson-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    background: linear-gradient(135deg, #0033a0, #ce1126);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -642,7 +670,7 @@
 
 .lesson-content h5 {
     margin-bottom: 0.5rem;
-    color: #343a40;
+    color: #0033a0;
     font-weight: 600;
 }
 
@@ -650,6 +678,44 @@
     margin: 0;
     color: #495057;
     line-height: 1.5;
+}
+
+/* Additional Measures */
+.additional-measures {
+    background: rgba(255, 205, 0, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid #ffcd00;
+}
+
+.additional-measures h5 {
+    color: #0033a0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.additional-measures ul {
+    list-style: none;
+    padding: 0;
+}
+
+.additional-measures li {
+    padding: 0.5rem 0;
+    color: #495057;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.additional-measures li::before {
+    content: '★';
+    color: #ffcd00;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.additional-measures strong {
+    color: #0033a0;
 }
 
 /* Responsive */
@@ -698,6 +764,10 @@
     .detail-item {
         flex-direction: column;
         text-align: center;
+    }
+    
+    .additional-measures {
+        padding: 1rem;
     }
 }
 </style>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Juego Interactivo - Forensic Digital{% endblock %}
+{% block title %}Actividad Interactiva - Forensic Digital{% endblock %}
 
 {% block content %}
 <!-- Hero Section para Actividades -->
@@ -13,9 +13,7 @@
                         <span class="hero-badge">🎮 Aprende Jugando</span>
                     </div>
                     <h1 class="hero-title">
-                        <span class="gradient-text">Juego de Memoria</span>
-                        <br>
-                        <span class="hero-subtitle">Términos Forenses</span>
+                        <span class="gradient-text">Memoria en Acción</span>
                     </h1>
                     <p class="hero-description">
                         Pon a prueba tu memoria mientras aprendes los conceptos más importantes 
@@ -43,7 +41,7 @@
                     <div class="game-preview">
                         <div class="preview-card card-1">
                             <i class="fas fa-shield-alt"></i>
-                            <span>Forensia</span>
+                            <span>Análisis Forense Digital</span>
                         </div>
                         <div class="preview-card card-2">
                             <i class="fas fa-fingerprint"></i>
@@ -72,8 +70,8 @@
                 <div class="game-container">
                     <!-- Header del Juego -->
                     <div class="game-header text-center mb-5">
-                        <h2 class="game-title">🎯 Juego de Memoria Forense</h2>
-                        <p class="game-subtitle">Encuentra las parejas de términos y sus definiciones</p>
+                        <h2 class="game-title">🎯 “Detecta, Recuerda y Resuelve” </h2>
+                        <p class="game-subtitle">Diviértete encontrando las parejas de términos y sus definiciones</p>
                     </div>
 
                     <!-- Panel de Estadísticas -->
@@ -161,8 +159,6 @@
                     <!-- Mensajes del Juego -->
                     <div id="game-messages" class="game-messages mt-4">
                         <div id="welcome-message" class="alert alert-game-info text-center">
-                            <h5>🎮 ¡Bienvenido al Juego de Memoria Forense!</h5>
-                            <p class="mb-0">Haz clic en "Iniciar Juego" para comenzar. Encuentra todas las parejas de términos forenses.</p>
                         </div>
                         <div id="success-message" class="alert alert-game-success text-center d-none">
                             <!-- Mensaje de éxito -->
@@ -174,8 +170,10 @@
                         <div class="card border-0 shadow-sm">
                             <div class="card-header bg-game-primary text-white">
                                 <h5 class="mb-0">
-                                    <i class="fas fa-graduation-cap me-2"></i>
-                                    ¿Cómo Jugar?
+                                    <div class="text-center">
+                                        <i class="fas fa-graduation-cap me-2"></i>
+                                         ¿Cómo Jugar?
+                                    </div>
                                 </h5>
                             </div>
                             <div class="card-body">
@@ -236,7 +234,7 @@
                     <div class="term-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h5>Forensia Digital</h5>
+                    <h5>Análisis Forense Digital</h5>
                     <p>Ciencia que aplica técnicas para investigar delitos digitales mediante el análisis de evidencia electrónica.</p>
                 </div>
             </div>
@@ -332,10 +330,10 @@
 
 {% block scripts %}
 <script>
-// Datos mejorados para el juego de memoria
+// Datos mejorados para el juego
 const memoryCards = [
     { 
-        term: "Forensia Digital", 
+        term: "Análisis Forense Digital", 
         definition: "Ciencia que aplica técnicas para investigar delitos digitales mediante análisis de evidencia electrónica",
         icon: "fas fa-shield-alt"
     },
@@ -355,13 +353,13 @@ const memoryCards = [
         icon: "fas fa-database"
     },
     { 
-        term: "Imagen Forense", 
-        definition: "Copia bit a bit exacta de un dispositivo de almacenamiento para análisis sin alterar original",
+        term: "Primer Responsable", 
+        definition: "Primera autoridad que llega al lugar de los hechos.",
         icon: "fas fa-copy"
     },
     { 
         term: "Hash", 
-        definition: "Valor único algorítmico que identifica la integridad de un archivo o conjunto de datos",
+        definition: "Valor único algorítmico que identifica la integridad de un archivo",
         icon: "fas fa-hashtag"
     },
     { 
