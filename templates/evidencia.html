@@ -6,13 +6,9 @@
 <!-- Hero Section Moderna -->
 <section class="modern-hero evidencia-hero">
     <div class="container">
-        <div class="row align-items-center min-vh-80">
+        <div class="row align-items-center min-vh-70"> <!-- Cambiado a 70vh -->
             <div class="col-lg-8 mx-auto text-center">
                 <div class="hero-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-microchip me-2"></i>
-                        Conceptos Fundamentales
-                    </div>
                     <h1 class="hero-title">
                         Evidencia <span class="text-gradient">Digital</span>
                     </h1>
@@ -24,15 +20,15 @@
                     <div class="hero-stats">
                         <div class="stat">
                             <div class="stat-number">90%</div>
-                            <div class="stat-label">Casos con evidencia digital</div>
+                            <div>Casos resueltos</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">24h</div>
-                            <div class="stat-label">Para preservar evidencia</div>
+                            <div class="stat-number">24/7</div>
+                            <div>Disponibilidad</div>
                         </div>
                         <div class="stat">
                             <div class="stat-number">100%</div>
-                            <div class="stat-label">Esencial en investigaciones</div>
+                            <div class>Esencial en investigaciones</div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +105,7 @@
                 <div class="feature-tag">Alcance</div>
             </div>
 
-            <div class="feature-card">
+            <div class="feature-card last-feature-card">
                 <div class="feature-header">
                     <div class="feature-icon">
                         <i class="fas fa-ghost"></i>
@@ -119,21 +115,7 @@
                 <p>Puede perderse fácilmente si no se preserva correctamente y a tiempo</p>
                 <div class="feature-tag">Fragilidad</div>
             </div>
-        </div>
-
-        <!-- CTA Final -->
-        <div class="cta-banner">
-            <div class="cta-content">
-                <h3>¿Listo para explorar los tipos de evidencia?</h3>
-                <p>Descubre la clasificación completa de fuentes digitales y sus características específicas</p>
-            </div>
-            <div class="cta-action">
-                <a href="{{ url_for('tipos') }}" class="btn btn-modern">
-                    <i class="fas fa-arrow-right me-2"></i>
-                    Ver Tipos de Evidencia
-                </a>
-            </div>
-        </div>
+        </div> 
     </div>
 </section>
 {% endblock %}
@@ -153,21 +135,22 @@
     --dark: #212529;
 }
 
-/* Hero Section Moderna */
+/* Hero Section Moderna - ESPACIO DRÁSTICAMENTE REDUCIDO */
 .modern-hero {
     position: relative;
-    padding: 140px 0 80px;
+    padding: 60px 0 40px; /* Reducido drásticamente */
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--secondary) 100%);
     color: white;
     overflow: hidden;
+    margin-top: 0; /* Asegurar que no hay margen superior */
 }
 
 .evidencia-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.min-vh-80 {
-    min-height: 80vh;
+.min-vh-70 {
+    min-height: 70vh; /* Reducido de 80vh a 70vh */
 }
 
 .hero-badge {
@@ -178,15 +161,16 @@
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reducido */
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 3.5rem; /* Ligeramente más pequeño */
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reducido */
     line-height: 1.1;
+    color: white;
 }
 
 .text-gradient {
@@ -197,19 +181,20 @@
 }
 
 .hero-description {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* Ligeramente más pequeño */
     line-height: 1.6;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem; /* Reducido */
     opacity: 0.9;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: white;
 }
 
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 4rem;
+    gap: 3rem; /* Reducido */
     flex-wrap: wrap;
 }
 
@@ -218,7 +203,7 @@
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Reducido */
     font-weight: 800;
     color: var(--accent);
     line-height: 1;
@@ -228,11 +213,12 @@
     font-size: 0.9rem;
     opacity: 0.8;
     margin-top: 0.5rem;
+    color: white;
 }
 
 /* Sección Moderna */
 .modern-section {
-    padding: 100px 0;
+    padding: 80px 0 50px; /* Reducido el padding superior */
     background: var(--light);
 }
 
@@ -242,38 +228,38 @@
     align-items: flex-start;
     gap: 3rem;
     background: white;
-    padding: 4rem;
+    padding: 3rem; /* Reducido */
     border-radius: 30px;
     box-shadow: 0 20px 60px rgba(67, 97, 238, 0.1);
-    margin-bottom: 6rem;
+    margin-bottom: 4rem; /* Reducido */
     border: 2px solid rgba(67, 97, 238, 0.1);
 }
 
 .card-icon {
-    width: 100px;
-    height: 100px;
+    width: 80px; /* Reducido */
+    height: 80px; /* Reducido */
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    border-radius: 25px;
+    border-radius: 20px; /* Reducido */
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2.5rem;
+    font-size: 2rem; /* Reducido */
     flex-shrink: 0;
 }
 
 .card-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* Reducido */
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem; /* Reducido */
     color: var(--dark);
 }
 
 .card-content .lead {
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reducido */
     line-height: 1.7;
     color: #495057;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reducido */
 }
 
 .highlight {
@@ -289,21 +275,21 @@
     align-items: center;
     gap: 1.5rem;
     background: linear-gradient(135deg, #FFF3CD, #FFEAA7);
-    padding: 2rem;
+    padding: 1.5rem; /* Reducido */
     border-radius: 20px;
     border-left: 6px solid var(--warning);
 }
 
 .banner-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px; /* Reducido */
+    height: 50px; /* Reducido */
     background: var(--warning);
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Reducido */
     flex-shrink: 0;
 }
 
@@ -322,18 +308,18 @@
 /* Section Header */
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem; /* Reducido */
 }
 
 .section-header h2 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Reducido */
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem; /* Reducido */
     color: var(--dark);
 }
 
 .section-header p {
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reducido */
     color: #6c757d;
     max-width: 500px;
     margin: 0 auto;
@@ -344,12 +330,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
+    justify-items: center;
 }
 
 .feature-card {
     background: white;
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem; /* Reducido */
     border-radius: 25px;
     text-align: center;
     box-shadow: 0 15px 40px rgba(67, 97, 238, 0.1);
@@ -357,6 +344,14 @@
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+}
+
+.last-feature-card {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 320px;
 }
 
 .feature-card::before {
@@ -375,92 +370,53 @@
 }
 
 .feature-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem; /* Reducido */
 }
 
 .feature-icon {
-    width: 80px;
-    height: 80px;
+    width: 70px; /* Reducido */
+    height: 70px; /* Reducido */
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    border-radius: 20px;
+    border-radius: 18px; /* Reducido */
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2rem;
-    margin: 0 auto 1.5rem;
+    font-size: 1.8rem; /* Reducido */
+    margin: 0 auto 1.2rem; /* Reducido */
 }
 
 .feature-card h4 {
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Reducido */
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem; /* Reducido */
     color: var(--dark);
 }
 
 .feature-card p {
     color: #6c757d;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem; /* Reducido */
 }
 
 .feature-tag {
     display: inline-block;
     background: rgba(67, 97, 238, 0.1);
     color: var(--primary);
-    padding: 8px 16px;
+    padding: 6px 12px; /* Reducido */
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Reducido */
     font-weight: 600;
-}
-
-/* CTA Banner */
-.cta-banner {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 4rem;
-    border-radius: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 20px 60px rgba(67, 97, 238, 0.3);
-}
-
-.cta-content h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.cta-content p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    margin: 0;
-}
-
-.btn-modern {
-    background: white;
-    color: var(--primary);
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-}
-
-.btn-modern:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
-    color: var(--primary);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+    .modern-hero {
+        padding: 50px 0 30px; /* Más reducido en tablet */
+    }
+    
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .hero-stats {
@@ -478,32 +434,38 @@
         text-align: center;
     }
     
-    .cta-banner {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-    }
-    
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .last-feature-card {
+        grid-column: auto;
     }
 }
 
 @media (max-width: 576px) {
     .modern-hero {
-        padding: 120px 0 60px;
+        padding: 40px 0 20px; /* Muy reducido en móvil */
     }
     
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .hero-description {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     .section-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .modern-section {
+        padding: 60px 0 30px;
+    }
+    
+    .min-vh-70 {
+        min-height: 60vh; /* Aún más reducido en móvil */
     }
 }
 </style>

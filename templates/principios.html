@@ -9,9 +9,6 @@
         <div class="row align-items-center min-vh-80">
             <div class="col-lg-8 mx-auto text-center">
                 <div class="hero-content">
-                    <div class="badge-container mb-4">
-                        <span class="hero-badge">⚖️ Fundamentos Éticos</span>
-                    </div>
                     <h1 class="hero-title">
                         <span class="gradient-text">Principios de la Evidencia Digital</span>
                     </h1>
@@ -46,143 +43,153 @@
 
                 <!-- Lista de Principios -->
                 <div class="principles-list">
-                    {% for principio in [
-                        {
-                            "number": "1",
-                            "title": "Integridad",
-                            "description": "La evidencia digital debe mantenerse inalterada durante todo el proceso de recolección, análisis y presentación. Cualquier modificación debe documentarse completamente.",
-                            "icon": "fas fa-shield-alt",
-                            "applications": [
-                                "Uso de funciones hash para verificar integridad",
-                                "Documentación de todo el proceso",
-                                "Manejo con herramientas forenses validadas"
-                            ]
-                        },
-                        {
-                            "number": "2",
-                            "title": "Autenticidad",
-                            "description": "Debe poder verificarse que la evidencia es genuina y proviene de la fuente declarada. Esto incluye validar la procedencia y la no alteración de los datos.",
-                            "icon": "fas fa-fingerprint",
-                            "applications": [
-                                "Verificación de metadatos",
-                                "Validación de fuentes y procedencia",
-                                "Certificación de herramientas utilizadas"
-                            ]
-                        },
-                        {
-                            "number": "3",
-                            "title": "Repetibilidad",
-                            "description": "Los procesos forenses deben poder repetirse por otros expertos independientes, obteniendo los mismos resultados para validar los hallazgos.",
-                            "icon": "fas fa-redo",
-                            "applications": [
-                                "Documentación detallada de metodologías",
-                                "Uso de herramientas estándar de la industria",
-                                "Procedimientos replicables y verificables"
-                            ]
-                        },
-                        {
-                            "number": "4",
-                            "title": "Documentación",
-                            "description": "Todo el proceso de manejo de evidencia debe documentarse minuciosamente, incluyendo quién, cuándo, cómo y por qué se realizó cada acción.",
-                            "icon": "fas fa-clipboard-list",
-                            "applications": [
-                                "Registros detallados de cada paso",
-                                "Fotografías y videos del proceso",
-                                "Informes forenses completos"
-                            ]
-                        },
-                        {
-                            "number": "5",
-                            "title": "Cadena de Custodia",
-                            "description": "Debe mantenerse un registro completo de todas las personas que han tenido acceso a la evidencia, desde su recolección hasta su presentación en juicio.",
-                            "icon": "fas fa-link",
-                            "applications": [
-                                "Registro de cada transferencia de custodia",
-                                "Control de acceso a la evidencia",
-                                "Documentación de almacenamiento seguro"
-                            ]
-                        }
-                    ] %}
+                    <!-- Principio 1: Legalidad -->
                     <div class="principle-card">
                         <div class="principle-header">
-                            <div class="principle-number">
-                                {{ principio.number }}
-                            </div>
+                            <div class="principle-number">1</div>
                             <div class="principle-title">
-                                <h3>{{ principio.title }}</h3>
+                                <h3>Legalidad</h3>
                                 <div class="principle-icon">
-                                    <i class="{{ principio.icon }}"></i>
+                                    <i class="fas fa-gavel"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="principle-body">
-                            <p class="principle-description">{{ principio.description }}</p>
+                            <p class="principle-description">Toda acción sobre evidencia digital debe estar respaldada por normas legales y respetar derechos fundamentales. La obtención debe contar con autorización judicial o estar dentro de excepciones legales.</p>
                             <div class="principle-applications">
                                 <h5>Aplicación Práctica:</h5>
                                 <ul>
-                                    {% for app in principio.applications %}
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        {{ app }}
-                                    </li>
-                                    {% endfor %}
+                                    <li><i class="fas fa-check-circle"></i>Autorización judicial para obtención de evidencia</li>
+                                    <li><i class="fas fa-check-circle"></i>Respeto a derechos fundamentales y privacidad</li>
+                                    <li><i class="fas fa-check-circle"></i>Cumplimiento de normativas locales e internacionales</li>
+                                    <li><i class="fas fa-check-circle"></i>Documentación de bases legales para cada acción</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
 
-                <!-- Tabla Resumen -->
-                <div class="content-card mt-5">
-                    <div class="card-header">
-                        <h3>Resumen de Principios Forenses</h3>
-                        <p class="text-muted">Visión general de objetivos y herramientas de verificación</p>
+                    <!-- Principio 2: Integridad -->
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <div class="principle-number">2</div>
+                            <div class="principle-title">
+                                <h3>Integridad</h3>
+                                <div class="principle-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="principle-body">
+                            <p class="principle-description">La evidencia debe mantenerse intacta desde su recolección hasta su presentación. Se utilizan técnicas como el hashing para verificar que no ha sido alterada.</p>
+                            <div class="principle-applications">
+                                <h5>Aplicación Práctica:</h5>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i>Uso de funciones hash (MD5, SHA) para verificación</li>
+                                    <li><i class="fas fa-check-circle"></i>Write-blockers para prevención de alteraciones</li>
+                                    <li><i class="fas fa-check-circle"></i>Documentación de estado original</li>
+                                    <li><i class="fas fa-check-circle"></i>Verificación periódica de integridad</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="principles-table">
-                                <thead>
-                                    <tr>
-                                        <th>Principio</th>
-                                        <th>Objetivo</th>
-                                        <th>Herramientas de Verificación</th>
-                                        <th>Impacto Legal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Integridad</strong></td>
-                                        <td>Garantizar que la evidencia no ha sido alterada</td>
-                                        <td>Hash MD5/SHA, write-blockers</td>
-                                        <td>Determina la admisibilidad</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Autenticidad</strong></td>
-                                        <td>Verificar el origen y validez de la evidencia</td>
-                                        <td>Metadatos, certificados digitales</td>
-                                        <td>Establece la procedencia</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Repetibilidad</strong></td>
-                                        <td>Permitir la verificación independiente</td>
-                                        <td>Documentación, herramientas estándar</td>
-                                        <td>Fortalece la credibilidad</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Documentación</strong></td>
-                                        <td>Registrar todo el proceso forense</td>
-                                        <td>Informes, fotografías, logs</td>
-                                        <td>Proporciona transparencia</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Cadena de Custodia</strong></td>
-                                        <td>Rastrear el manejo de la evidencia</td>
-                                        <td>Formularios de custodia, registros</td>
-                                        <td>Garantiza la trazabilidad</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                    <!-- Principio 3: Autenticidad -->
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <div class="principle-number">3</div>
+                            <div class="principle-title">
+                                <h3>Autenticidad</h3>
+                                <div class="principle-icon">
+                                    <i class="fas fa-fingerprint"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="principle-body">
+                            <p class="principle-description">Debe demostrarse que la evidencia proviene de una fuente legítima y no ha sido manipulada. Incluye la trazabilidad del dispositivo, usuario y contexto de origen.</p>
+                            <div class="principle-applications">
+                                <h5>Aplicación Práctica:</h5>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i>Verificación de metadatos y timestamps</li>
+                                    <li><i class="fas fa-check-circle"></i>Validación de fuentes y procedencia</li>
+                                    <li><i class="fas fa-check-circle"></i>Trazabilidad de dispositivo y usuario origen</li>
+                                    <li><i class="fas fa-check-circle"></i>Certificación de herramientas utilizadas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Principio 4: Cadena de Custodia -->
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <div class="principle-number">4</div>
+                            <div class="principle-title">
+                                <h3>Cadena de Custodia</h3>
+                                <div class="principle-icon">
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="principle-body">
+                            <p class="principle-description">Registro detallado de cada persona que manipula la evidencia, con fechas, lugares y procedimientos. Evita dudas sobre su manipulación o contaminación.</p>
+                            <div class="principle-applications">
+                                <h5>Aplicación Práctica:</h5>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i>Registro de cada transferencia de custodia</li>
+                                    <li><i class="fas fa-check-circle"></i>Control de acceso a la evidencia</li>
+                                    <li><i class="fas fa-check-circle"></i>Documentación de fechas y lugares</li>
+                                    <li><i class="fas fa-check-circle"></i>Formularios de custodia firmados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Principio 5: Confidencialidad -->
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <div class="principle-number">5</div>
+                            <div class="principle-title">
+                                <h3>Confidencialidad</h3>
+                                <div class="principle-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="principle-body">
+                            <p class="principle-description">Protección de datos sensibles o personales contenidos en la evidencia. Se aplican protocolos de acceso restringido y encriptación.</p>
+                            <div class="principle-applications">
+                                <h5>Aplicación Práctica:</h5>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i>Acceso restringido a personal autorizado</li>
+                                    <li><i class="fas fa-check-circle"></i>Encriptación de datos sensibles</li>
+                                    <li><i class="fas fa-check-circle"></i>Protocolos de manejo de información personal</li>
+                                    <li><i class="fas fa-check-circle"></i>Destrucción segura de copias temporales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Principio 6: Disponibilidad -->
+                    <div class="principle-card">
+                        <div class="principle-header">
+                            <div class="principle-number">6</div>
+                            <div class="principle-title">
+                                <h3>Disponibilidad</h3>
+                                <div class="principle-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="principle-body">
+                            <p class="principle-description">La evidencia debe estar accesible para su análisis sin comprometer su integridad. Se crean copias forenses para trabajar sin alterar el original.</p>
+                            <div class="principle-applications">
+                                <h5>Aplicación Práctica:</h5>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i>Creación de copias forenses bit-a-bit</li>
+                                    <li><i class="fas fa-check-circle"></i>Acceso controlado a evidencia original</li>
+                                    <li><i class="fas fa-check-circle"></i>Sistemas de almacenamiento redundante</li>
+                                    <li><i class="fas fa-check-circle"></i>Protocolos de recuperación ante fallos</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -9,12 +9,12 @@
         <div class="row align-items-center min-vh-80">
             <div class="col-lg-8 mx-auto text-center">
                 <div class="hero-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-layer-group me-2"></i>
-                        Clasificación Completa
                     </div>
+                    <!-- TÍTULO ACTUALIZADO CON EL MISMO ESTILO QUE EVIDENCIA DIGITAL -->
                     <h1 class="hero-title">
-                        Tipos de <span class="text-gradient">Evidencia</span>
+                        <br>
+                        <br>
+                        Tipos de <span class="text-gradient">Evidencia Digital</span>
                     </h1>
                     <p class="hero-description">
                         Explora la diversidad de fuentes digitales que pueden convertirse en evidencia crucial. 
@@ -55,26 +55,13 @@
                     es fundamental para realizar investigaciones forenses efectivas y garantizar que no se pase por 
                     alto <span class="highlight">ninguna fuente potencial de información</span>.
                 </p>
-                <div class="classification-banner">
-                    <div class="banner-item">
-                        <i class="fas fa-desktop"></i>
-                        <span>Dispositivos</span>
-                    </div>
-                    <div class="banner-item">
-                        <i class="fas fa-cloud"></i>
-                        <span>Nube</span>
-                    </div>
-                    <div class="banner-item">
-                        <i class="fas fa-network-wired"></i>
-                        <span>Redes</span>
-                    </div>
-                    <div class="banner-item">
-                        <i class="fas fa-database"></i>
-                        <span>Almacenamiento</span>
-                    </div>
-                </div>
+                
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
 
         <!-- Grid de Tipos -->
         <div class="types-showcase">
@@ -146,19 +133,7 @@
             {% endfor %}
         </div>
 
-        <!-- CTA Final -->
-        <div class="cta-banner tipos-cta">
-            <div class="cta-content">
-                <h3>¿Quieres dominar los principios forenses?</h3>
-                <p>Aprende las metodologías correctas para manejar cada tipo de evidencia digital</p>
-            </div>
-            <div class="cta-action">
-                <a href="{{ url_for('principios') }}" class="btn btn-modern">
-                    <i class="fas fa-graduation-cap me-2"></i>
-                    Ver Principios
-                </a>
-            </div>
-        </div>
+        
     </div>
 </section>
 {% endblock %}
@@ -179,6 +154,58 @@
 
 .tipos-hero {
     background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 50%, var(--teal) 100%);
+}
+
+/* Hero Title Styles - ACTUALIZADO PARA COINCIDIR CON EVIDENCIA DIGITAL */
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: white; /* TÍTULO EN BLANCO */
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #4CC9F0, #FFD166);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white; /* DESCRIPCIÓN EN BLANCO */
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #4CC9F0;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+    color: white; /* ETIQUETAS DE ESTADÍSTICAS EN BLANCO */
 }
 
 /* Classification Banner */
@@ -360,6 +387,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
     .types-showcase {
         grid-template-columns: 1fr;
     }
@@ -380,6 +411,10 @@
 }
 
 @media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
     .classification-banner {
         grid-template-columns: 1fr;
     }
